@@ -1,3 +1,39 @@
 .Home {
-    padding: 20px;
+    background: #ADD8E6;
+}
+
+@font-face {
+    font-family: 'DMC';
+    src: url('../../assets/DMC5Font.otf') format('opentype');
+}
+
+.logo-image{
+    border-radius: 288px;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+}
+
+.app-name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    font-size: 50px;
+    font-family: 'DMC', sans-serif;
+}
+
+.search-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+.search-input{
+    width: 45vw;
 }
