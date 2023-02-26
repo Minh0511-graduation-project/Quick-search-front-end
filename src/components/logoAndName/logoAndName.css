@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'DMC';
+    src: url('../../assets/DMC5Font.otf') format('opentype');
+}
+
+.logo-heading{
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    height: 11vh;
+}
+
+.logo{
+    border-radius: 288px;
+}
+
+.app-name{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 11vh;
+    font-size: 40px;
+    font-family: 'DMC', sans-serif;
+}
+
+.logo-and-name{
+    background: #ADD8E6;
+}

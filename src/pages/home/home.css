@@ -11,14 +11,14 @@
     border-radius: 288px;
 }
 
-.logo{
+.logo-home{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 40vh;
 }
 
-.app-name{
+.app-name-home{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,7 +27,7 @@
     font-family: 'DMC', sans-serif;
 }
 
-.search-bar{
+.search-bar-home{
     display: flex;
     justify-content: center;
     align-items: center;

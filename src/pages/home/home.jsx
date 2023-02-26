@@ -13,15 +13,15 @@ const Home = () => {
     return (
         <Layout
             className={"Home"}>
-            <Space className={"logo"}>
+            <Space className={"logo-home"}>
                 <Image
                     className={"logo-image"}
                     src={logo} width={300} height={300}/>
             </Space>
-            <Space className={"app-name"}>
+            <Space className={"app-name-home"}>
                 SHOP SEARCH SYSTEM
             </Space>
-            <Space className={"search-bar"}>
+            <Space className={"search-bar-home"}>
                 <Search
                     size="large"
                     placeholder="Bạn muốn tìm gì?"

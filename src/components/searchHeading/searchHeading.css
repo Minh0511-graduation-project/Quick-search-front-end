@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'DMC';
+    src: url('../../assets/DMC5Font.otf') format('opentype');
+}
+
+.search-heading{
+    background: #ADD8E6;
+}
+
+.search-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 11vh;
+    width: 50vw;
+}
