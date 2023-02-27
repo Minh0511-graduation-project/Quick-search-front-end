@@ -1,3 +1,31 @@
 .search-results{
     background: #ADD8E6;
+    padding-bottom: 20px;
+}
+
+.tiki{
+    padding-top: 50px;
+    padding-left: 200px;
+}
+
+.tiki-panel{
+    width: 72vw;
+}
+
+.shopee{
+    padding-top: 50px;
+    padding-left: 200px;
+}
+
+.shopee-panel{
+    width: 72vw;
+}
+
+.lazada{
+    padding-top: 50px;
+    padding-left: 200px;
+}
+
+.lazada-panel{
+    width: 72vw;
 }

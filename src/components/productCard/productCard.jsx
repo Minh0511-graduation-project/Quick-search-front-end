@@ -7,6 +7,7 @@ const productCard = (props) => {
         <Layout className={"product-card"}>
             <Card
                 hoverable
+                bordered={true}
                 style={{ width: 240 }}
                 cover={<img alt="example" src={props.imageUrl} />}
             >
