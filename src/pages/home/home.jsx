@@ -3,12 +3,15 @@ import Layout from "antd/es/layout/layout";
 import logo from "../../assets/logo.png";
 import "./home.css";
 import {SearchOutlined} from '@ant-design/icons';
+import {useNavigate} from "react-router-dom";
 
 const {Search} = Input;
 
 const Home = () => {
+    const navigate = useNavigate();
     const handleSearch = (value) => {
         console.log(value);
+        navigate("/search-results", {state: {searchValue: value}})
     }
     return (
         <Layout
