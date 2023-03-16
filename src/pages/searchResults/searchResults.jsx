@@ -2,28 +2,82 @@ import {Col, Collapse, Layout, Row, Space} from "antd";
 import "./searchResults.css";
 import SearchHeading from "../../components/searchHeading/searchHeading";
 import ProductCard from "../../components/productCard/productCard";
-import placeHolderImg from "../../assets/earbud.jpg";
+import {useEffect, useState} from "react";
+import ShopeeService from "../../services/shopee.service";
+import TikiService from "../../services/tiki.service";
+import LazadaService from "../../services/lazada.service";
 
 const {Panel} = Collapse;
 
 const SearchResults = () => {
-    const products = [
-        {image_url: placeHolderImg, name: "Tai nghe 1", price: "100000đ"},
-        {image_url: placeHolderImg, name: "Tai nghe 2", price: "200000đ"},
-        {image_url: placeHolderImg, name: "Tai nghe 3", price: "300000đ"},
-        {image_url: placeHolderImg, name: "Tai nghe 4", price: "400000đ"},
-        {image_url: placeHolderImg, name: "Tai nghe 5", price: "500000đ"},
-    ]
+    const [tikiProducts, setTikiProducts] = useState();
+    const [shopeeProducts, setShopeeProducts] = useState();
+    const [lazadaProducts, setLazadaProducts] = useState();
+    const [refreshPage, setRefreshPage] = useState(false);
+    const handleRefresh = () => {
+        setRefreshPage((current) => !current);
+    };
+
+    const searchTerm = localStorage.getItem("searchValue");
+
+    const getTikiProducts = () => {
+        TikiService.listProductsBySearchTerm(searchTerm).then((listProducts) => {
+            const productArr = [];
+            if (listProducts != null) {
+                for (let i = 0;i < 5;i++) {
+                    productArr.push(listProducts[i]);
+                }
+            }
+            setTikiProducts(productArr);
+        })
+    }
+
+    const getShopeeProducts = () => {
+        ShopeeService.listProductsBySearchTerm(searchTerm).then((listProducts) => {
+            const productArr = [];
+            if (listProducts != null) {
+                for (let i = 0;i < 5;i++) {
+                    productArr.push(listProducts[i]);
+                }
+            }
+            setShopeeProducts(productArr);
+        })
+    }
+
+    const getLazadaProducts = () => {
+        LazadaService.listProductsBySearchTerm(searchTerm).then((listProducts) => {
+            const productArr = [];
+            if (listProducts != null) {
+                for (let i = 0;i < 5;i++) {
+                    productArr.push(listProducts[i]);
+                }
+            }
+            setLazadaProducts(productArr);
+        })
+    }
+
+    useEffect(() => {
+        const fetchData = async () => {
+            await getTikiProducts();
+            await getShopeeProducts();
+            await getLazadaProducts();
+        };
+        fetchData()
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [refreshPage]);
     return (
         <Layout className={"search-results"}>
-            <SearchHeading/>
+            <SearchHeading handleRefresh={handleRefresh}/>
             <Space className={"tiki"}>
-                <Collapse>
+                <Collapse defaultActiveKey={['1']}>
                     <Panel header="Tiki"
-                           className={"tiki-panel"}>
+                           className={"tiki-panel"}
+                           key={"1"}
+                    >
                         >
                         <Row gutter={30}>
-                            {products?.map((product) => (
+                            {tikiProducts?.map((product) => (
                                 <Col span={4.8}>
                                     <ProductCard
                                         imageUrl={product.image_url}
@@ -37,12 +91,13 @@ const SearchResults = () => {
                 </Collapse>
             </Space>
             <Space className={"shopee"}>
-                <Collapse>
+                <Collapse defaultActiveKey={['1']}>
                     <Panel header="Shopee"
                            className={"shopee-panel"}
+                           key={"1"}
                      >
                         <Row gutter={30}>
-                            {products?.map((product) => (
+                            {shopeeProducts?.map((product) => (
                                 <Col span={4.8}>
                                     <ProductCard
                                         imageUrl={product.image_url}
@@ -56,13 +111,14 @@ const SearchResults = () => {
                 </Collapse>
             </Space>
             <Space className={"lazada"}>
-                <Collapse>
+                <Collapse defaultActiveKey={['1']}>
                     <Panel
                         header="Lazada"
                         className={"lazada-panel"}
+                        key={"1"}
                      >
                         <Row gutter={30}>
-                            {products?.map((product) => (
+                            {lazadaProducts?.map((product) => (
                                 <Col span={4.8}>
                                     <ProductCard
                                         imageUrl={product.image_url}

@@ -8,7 +8,9 @@ function App() {
     return (
         <Routes>
             <Route path="/" element={<Home/>}/>
-            <Route path="/search-results" element={<SearchResults/>}/>
+            <Route path="/search-results">
+                <Route path=":value" element={<SearchResults/>} />
+            </Route>
         </Routes>
     );
 }

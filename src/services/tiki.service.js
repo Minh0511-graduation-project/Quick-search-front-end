@@ -3,11 +3,11 @@ require("dotenv").config()
 
 const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
-class ShopeeService {
+class TikiService {
     listSuggestionsByKeyword(keyword) {
-            return axios.get(`${REACT_APP_API_URL}/shopee/suggestion?keyword=${keyword}`, {
-                withCredentials: true,
-            }).then(
+        return axios.get(`${REACT_APP_API_URL}/tiki/suggestion?keyword=${keyword}`, {
+            withCredentials: true,
+        }).then(
             function (response) {
                 return response.data.data;
             }
@@ -18,7 +18,7 @@ class ShopeeService {
     }
 
     listProductsBySearchTerm(searchTerm) {
-        return axios.get(`${REACT_APP_API_URL}/shopee/product?searchTerm=${searchTerm}`, {
+        return axios.get(`${REACT_APP_API_URL}/tiki/product?searchTerm=${searchTerm}`, {
             withCredentials: true,
         }).then(
             function (response) {
@@ -32,4 +32,4 @@ class ShopeeService {
 }
 
 // eslint-disable-next-line
-export default new ShopeeService();
+export default new TikiService();

@@ -6,9 +6,12 @@ import Search from "antd/es/input/Search";
 import LogoAndName from "../logoAndName/logoAndName";
 import {useNavigate} from "react-router-dom";
 
-const SearchHeading = () => {
+const SearchHeading = (props) => {
     const handleSearch = (value) => {
+        props.handleRefresh();
+        localStorage.setItem("searchValue", value);
         console.log(value);
+        navigate(`/search-results/${value}`)
     }
     const navigate = useNavigate();
     return (
