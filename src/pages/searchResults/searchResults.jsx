@@ -40,7 +40,7 @@ const SearchResults = () => {
                 <Collapse>
                     <Panel header="Shopee"
                            className={"shopee-panel"}
-                    >
+                     >
                         <Row gutter={30}>
                             {products?.map((product) => (
                                 <Col span={4.8}>
@@ -60,7 +60,7 @@ const SearchResults = () => {
                     <Panel
                         header="Lazada"
                         className={"lazada-panel"}
-                    >
+                     >
                         <Row gutter={30}>
                             {products?.map((product) => (
                                 <Col span={4.8}>

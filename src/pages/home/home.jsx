@@ -4,12 +4,16 @@ import logo from "../../assets/logo.png";
 import "./home.css";
 import {SearchOutlined} from '@ant-design/icons';
 import {useNavigate} from "react-router-dom";
+import TikiService from "../../services/shopee.service";
 
 const {Search} = Input;
 
 const Home = () => {
     const navigate = useNavigate();
     const handleSearch = (value) => {
+        TikiService.listSuggestions().then((response) => {
+            console.log(response);
+        })
         console.log(value);
         navigate("/search-results", {state: {searchValue: value}})
     }
