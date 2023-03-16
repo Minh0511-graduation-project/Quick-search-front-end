@@ -80,7 +80,7 @@ const SearchResults = () => {
                             {tikiProducts?.map((product) => (
                                 <Col span={4.8}>
                                     <ProductCard
-                                        imageUrl={product.image_url}
+                                        imageUrl={product.imageUrl}
                                         name={product.name}
                                         price={product.price}
                                     />
@@ -100,7 +100,7 @@ const SearchResults = () => {
                             {shopeeProducts?.map((product) => (
                                 <Col span={4.8}>
                                     <ProductCard
-                                        imageUrl={product.image_url}
+                                        imageUrl={product.imageUrl}
                                         name={product.name}
                                         price={product.price}
                                     />
@@ -121,7 +121,7 @@ const SearchResults = () => {
                             {lazadaProducts?.map((product) => (
                                 <Col span={4.8}>
                                     <ProductCard
-                                        imageUrl={product.image_url}
+                                        imageUrl={product.imageUrl}
                                         name={product.name}
                                         price={product.price}
                                     />
