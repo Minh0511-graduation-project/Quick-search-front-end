@@ -9,7 +9,7 @@ class TikiService {
             withCredentials: true,
         }).then(
             function (response) {
-                return response.data.data;
+                return response.data.data.data;
             }
         )
             .catch(function (error) {
