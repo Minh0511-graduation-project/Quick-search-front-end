@@ -1,19 +1,27 @@
 import "./searchHeading.css"
-import {Col, Row} from "antd";
+import {AutoComplete, Col, Row} from "antd";
 import {SearchOutlined} from "@ant-design/icons";
 import Layout from "antd/es/layout/layout";
 import Search from "antd/es/input/Search";
 import LogoAndName from "../logoAndName/logoAndName";
 import {useNavigate} from "react-router-dom";
+import {useState} from "react";
+import ShopeeService from "../../services/shopee.service";
 
 const SearchHeading = (props) => {
-    const handleSearch = (value) => {
+    const [inputValue, setInputValue] = useState();
+    const [suggestions, setSuggestions] = useState([]);
+    const navigate = useNavigate();
+    const handleSearch = async value => {
+        const response = await ShopeeService.listSuggestionsByKeyword(value);
+        setSuggestions(response);
+    };
+    const goToNewSearch = (value) => {
         props.handleRefresh();
         localStorage.setItem("searchValue", value);
-        console.log(value);
         navigate(`/search-results/${value}`)
     }
-    const navigate = useNavigate();
+
     return (
         <Layout className={"search-heading"}>
             <Row>
@@ -24,15 +32,25 @@ const SearchHeading = (props) => {
                     <LogoAndName/>
                 </Col>
                 <Col span={15}>
-                    <Search
-                        size="large"
-                        placeholder="Bạn muốn tìm gì?"
-                        enterButton="Tìm kiếm"
-                        allowClear
-                        prefix={<SearchOutlined/>}
-                        className={"search-bar"}
+                    <AutoComplete
+                        style={{
+                            width: "50vw",
+                        }}
+                        options={suggestions}
                         onSearch={handleSearch}
-                    />
+                        value={inputValue}
+                        onChange={setInputValue}
+                    >
+                        <Search
+                            size="large"
+                            placeholder="Bạn muốn tìm gì?"
+                            enterButton="Tìm kiếm"
+                            allowClear
+                            prefix={<SearchOutlined/>}
+                            className={"search-bar"}
+                            onSearch={goToNewSearch}
+                        />
+                    </AutoComplete>
                 </Col>
             </Row>
         </Layout>

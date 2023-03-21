@@ -4,12 +4,35 @@ require("dotenv").config()
 const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 class ShopeeService {
+    listAllSuggestions() {
+        return axios.get(`${REACT_APP_API_URL}/shopee/suggestion`, {
+            withCredentials: true,
+        }).then(
+            function (response) {
+                return response.data.data.data;
+            }
+        )
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
     listSuggestionsByKeyword(keyword) {
+        const suggestionVal = (str) => ({
+            value: str,
+        });
             return axios.get(`${REACT_APP_API_URL}/shopee/suggestion?keyword=${keyword}`, {
                 withCredentials: true,
             }).then(
             function (response) {
-                return response.data.data.data;
+                let data = response.data.data.data;
+                const suggestionsArr = [];
+                if (data != null) {
+                    for (let i = 0;i < 5;i++) {
+                        suggestionsArr.push(suggestionVal(data[0].suggestions[i]));
+                    }
+                }
+                return suggestionsArr;
             }
         )
             .catch(function (error) {
