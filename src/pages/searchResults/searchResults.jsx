@@ -18,7 +18,7 @@ const SearchResults = () => {
         setRefreshPage((current) => !current);
     };
 
-    const searchTerm = localStorage.getItem("searchValue");
+    const searchTerm = localStorage.getItem("searchValue").toLowerCase();
 
     const getTikiProducts = () => {
         TikiService.listProductsBySearchTerm(searchTerm).then((listProducts) => {
@@ -77,8 +77,8 @@ const SearchResults = () => {
                     >
                         >
                         <Row gutter={30}>
-                            {tikiProducts?.map((product) => (
-                                <Col span={4.8}>
+                            {tikiProducts?.map((product, index) => (
+                                <Col span={4.8} key={index}>
                                     <ProductCard
                                         imageUrl={product.imageUrl}
                                         name={product.name}
@@ -97,8 +97,8 @@ const SearchResults = () => {
                            key={"1"}
                      >
                         <Row gutter={30}>
-                            {shopeeProducts?.map((product) => (
-                                <Col span={4.8}>
+                            {shopeeProducts?.map((product, index) => (
+                                <Col span={4.8} key={index}>
                                     <ProductCard
                                         imageUrl={product.imageUrl}
                                         name={product.name}
@@ -118,8 +118,8 @@ const SearchResults = () => {
                         key={"1"}
                      >
                         <Row gutter={30}>
-                            {lazadaProducts?.map((product) => (
-                                <Col span={4.8}>
+                            {lazadaProducts?.map((product, index) => (
+                                <Col span={4.8} key={index}>
                                     <ProductCard
                                         imageUrl={product.imageUrl}
                                         name={product.name}
