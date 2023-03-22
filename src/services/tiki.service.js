@@ -5,11 +5,21 @@ const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 class TikiService {
     listSuggestionsByKeyword(keyword) {
+        const suggestionVal = (str) => ({
+            value: str,
+        });
         return axios.get(`${REACT_APP_API_URL}/tiki/suggestion?keyword=${keyword}`, {
             withCredentials: true,
         }).then(
             function (response) {
-                return response.data.data.data;
+                let data = response.data.data.data;
+                const suggestionsArr = [];
+                if (data != null) {
+                    for (let i = 0;i < 5;i++) {
+                        suggestionsArr.push(suggestionVal(data[0].suggestions[i]));
+                    }
+                }
+                return suggestionsArr;
             }
         )
             .catch(function (error) {

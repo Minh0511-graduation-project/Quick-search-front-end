@@ -17,14 +17,13 @@ const SearchResults = () => {
     const handleRefresh = () => {
         setRefreshPage((current) => !current);
     };
-
     const searchTerm = localStorage.getItem("searchValue").toLowerCase();
 
     const getTikiProducts = () => {
         TikiService.listProductsBySearchTerm(searchTerm).then((listProducts) => {
             const productArr = [];
             if (listProducts != null) {
-                for (let i = 0;i < 5;i++) {
+                for (let i = 0; i < 5; i++) {
                     productArr.push(listProducts[i]);
                 }
             }
@@ -36,7 +35,7 @@ const SearchResults = () => {
         ShopeeService.listProductsBySearchTerm(searchTerm).then((listProducts) => {
             const productArr = [];
             if (listProducts != null) {
-                for (let i = 0;i < 5;i++) {
+                for (let i = 0; i < 5; i++) {
                     productArr.push(listProducts[i]);
                 }
             }
@@ -48,7 +47,7 @@ const SearchResults = () => {
         LazadaService.listProductsBySearchTerm(searchTerm).then((listProducts) => {
             const productArr = [];
             if (listProducts != null) {
-                for (let i = 0;i < 5;i++) {
+                for (let i = 0; i < 5; i++) {
                     productArr.push(listProducts[i]);
                 }
             }
@@ -75,7 +74,6 @@ const SearchResults = () => {
                            className={"tiki-panel"}
                            key={"1"}
                     >
-                        >
                         <Row gutter={30}>
                             {tikiProducts?.map((product, index) => (
                                 <Col span={4.8} key={index}>
@@ -95,7 +93,7 @@ const SearchResults = () => {
                     <Panel header="Shopee"
                            className={"shopee-panel"}
                            key={"1"}
-                     >
+                    >
                         <Row gutter={30}>
                             {shopeeProducts?.map((product, index) => (
                                 <Col span={4.8} key={index}>
@@ -116,7 +114,7 @@ const SearchResults = () => {
                         header="Lazada"
                         className={"lazada-panel"}
                         key={"1"}
-                     >
+                    >
                         <Row gutter={30}>
                             {lazadaProducts?.map((product, index) => (
                                 <Col span={4.8} key={index}>
