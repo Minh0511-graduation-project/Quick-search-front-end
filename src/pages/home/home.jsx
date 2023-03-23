@@ -31,8 +31,12 @@ const Home = () => {
     };
 
     const goToSearchResults = (value) => {
-        localStorage.setItem("searchValue", value);
-        navigate(`/search-results/${value}`)
+        if (value === undefined || value === "") {
+            // do nothing
+        } else {
+            localStorage.setItem("searchValue", value);
+            navigate(`/search-results/${value}`)
+        }
     }
     return (
         <Layout
@@ -50,6 +54,7 @@ const Home = () => {
                     className={"search-input"}
                     options={suggestions}
                     onSearch={handleSearch}
+                    onSelect={goToSearchResults}
                     value={inputValue}
                     onChange={setInputValue}
                 >
@@ -59,6 +64,7 @@ const Home = () => {
                         enterButton="Tìm kiếm"
                         prefix={<SearchOutlined/>}
                         className={"search-input"}
+                        allowClear={true}
                         onSearch={goToSearchResults}
                     />
                 </AutoComplete>

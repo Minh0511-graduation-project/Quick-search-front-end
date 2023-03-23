@@ -5,7 +5,7 @@ import Layout from "antd/es/layout/layout";
 import Search from "antd/es/input/Search";
 import LogoAndName from "../logoAndName/logoAndName";
 import {useNavigate} from "react-router-dom";
-import {useEffect, useRef, useState} from "react";
+import {useRef, useState} from "react";
 import ShopeeService from "../../services/shopee.service";
 import LazadaService from "../../services/lazada.service";
 import TikiService from "../../services/tiki.service";
@@ -32,17 +32,14 @@ const SearchHeading = (props) => {
 
 
     const goToNewSearch = (value) => {
-        props.handleRefresh();
-        localStorage.setItem("searchValue", value);
-        navigate(`/search-results/${value}`)
-        setInputValue("");
+        if (value === undefined || value === "") {
+            // do nothing
+        } else {
+            props.handleRefresh();
+            localStorage.setItem("searchValue", value);
+            navigate(`/search-results/${value}`)
+        }
     }
-
-    useEffect(() => {
-        searchInputRef.current.focus({
-            cursor: "empty",
-        })
-    }, []);
 
     return (
         <Layout className={"search-heading"}>
@@ -58,23 +55,23 @@ const SearchHeading = (props) => {
                         style={{
                             width: "50vw",
                         }}
-                        ref={searchInputRef}
                         autoClearSearchValue={true}
                         options={suggestions}
                         onSearch={handleSearch}
+                        onSelect={goToNewSearch}
                         value={inputValue}
                         onChange={setInputValue}
-                        autoFocus={false}
-                        defaultOpen={false}
                     >
                         <Search
                             size="large"
-                            ref={searchInputRef}
                             placeholder="Bạn muốn tìm gì?"
                             enterButton="Tìm kiếm"
                             prefix={<SearchOutlined/>}
                             className={"search-bar"}
                             onSearch={goToNewSearch}
+                            allowClear={true}
+                            onBlur={() => searchInputRef.current?.blur()}
+
                         />
                     </AutoComplete>
                 </Col>
