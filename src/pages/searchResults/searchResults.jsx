@@ -23,8 +23,14 @@ const SearchResults = () => {
         TikiService.listProductsBySearchTerm(searchTerm).then((listProducts) => {
             const productArr = [];
             if (listProducts != null) {
-                for (let i = 0; i < 5; i++) {
-                    productArr.push(listProducts[i]);
+                if (listProducts.length > 5) {
+                    for (let i = 0; i < 5; i++) {
+                        productArr.push(listProducts[i]);
+                    }
+                } else {
+                    for (let i = 0; i < listProducts.length; i++) {
+                        productArr.push(listProducts[i]);
+                    }
                 }
             }
             setTikiProducts(productArr);
@@ -35,8 +41,14 @@ const SearchResults = () => {
         ShopeeService.listProductsBySearchTerm(searchTerm).then((listProducts) => {
             const productArr = [];
             if (listProducts != null) {
-                for (let i = 0; i < 5; i++) {
-                    productArr.push(listProducts[i]);
+                if (listProducts.length > 5) {
+                    for (let i = 0; i < 5; i++) {
+                        productArr.push(listProducts[i]);
+                    }
+                } else {
+                    for (let i = 0; i < listProducts.length; i++) {
+                        productArr.push(listProducts[i]);
+                    }
                 }
             }
             setShopeeProducts(productArr);
@@ -47,8 +59,14 @@ const SearchResults = () => {
         LazadaService.listProductsBySearchTerm(searchTerm).then((listProducts) => {
             const productArr = [];
             if (listProducts != null) {
-                for (let i = 0; i < 5; i++) {
-                    productArr.push(listProducts[i]);
+                if (listProducts.length > 5) {
+                    for (let i = 0; i < 5; i++) {
+                        productArr.push(listProducts[i]);
+                    }
+                } else {
+                    for (let i = 0; i < listProducts.length; i++) {
+                        productArr.push(listProducts[i]);
+                    }
                 }
             }
             setLazadaProducts(productArr);
@@ -76,7 +94,7 @@ const SearchResults = () => {
                     >
                         <Row gutter={30}>
                             {tikiProducts?.map((product, index) => (
-                                <Col span={4.8} key={index}>
+                                <Col span={4.8} key={product.id}>
                                     <ProductCard
                                         imageUrl={product.imageUrl}
                                         name={product.name}
@@ -96,7 +114,7 @@ const SearchResults = () => {
                     >
                         <Row gutter={30}>
                             {shopeeProducts?.map((product, index) => (
-                                <Col span={4.8} key={index}>
+                                <Col span={4.8} key={product.id}>
                                     <ProductCard
                                         imageUrl={product.imageUrl}
                                         name={product.name}
@@ -117,7 +135,7 @@ const SearchResults = () => {
                     >
                         <Row gutter={30}>
                             {lazadaProducts?.map((product, index) => (
-                                <Col span={4.8} key={index}>
+                                <Col span={4.8} key={product.id}>
                                     <ProductCard
                                         imageUrl={product.imageUrl}
                                         name={product.name}

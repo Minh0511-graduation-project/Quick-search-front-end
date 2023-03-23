@@ -9,6 +9,8 @@ import ShopeeService from "../../services/shopee.service";
 import LazadaService from "../../services/lazada.service";
 import TikiService from "../../services/tiki.service";
 
+const removeDuplicates = require('../../support/helper')
+
 const {Search} = Input;
 
 const Home = () => {
@@ -17,13 +19,14 @@ const Home = () => {
     const navigate = useNavigate();
 
     const handleSearch = async value => {
-        const response = [];
+        let response = [];
         const shopeeResponse = await ShopeeService.listSuggestionsByKeyword(value);
         response.push(...shopeeResponse)
         const lazadaResponse = await LazadaService.listSuggestionsByKeyword(value);
         response.push(...lazadaResponse)
         const tikiResponse = await TikiService.listSuggestionsByKeyword(value);
         response.push(...tikiResponse)
+        response = removeDuplicates(response);
         setSuggestions(response);
     };
 

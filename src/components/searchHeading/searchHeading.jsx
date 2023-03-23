@@ -10,6 +10,8 @@ import ShopeeService from "../../services/shopee.service";
 import LazadaService from "../../services/lazada.service";
 import TikiService from "../../services/tiki.service";
 
+const removeDuplicates = require('../../support/helper')
+
 const SearchHeading = (props) => {
     const [inputValue, setInputValue] = useState();
     const [suggestions, setSuggestions] = useState([]);
@@ -17,17 +19,19 @@ const SearchHeading = (props) => {
     const searchRef = useRef(null);
 
     const handleSearch = async value => {
-        const response = [];
+        let response = [];
         const shopeeResponse = await ShopeeService.listSuggestionsByKeyword(value);
         response.push(...shopeeResponse)
         const lazadaResponse = await LazadaService.listSuggestionsByKeyword(value);
         response.push(...lazadaResponse)
         const tikiResponse = await TikiService.listSuggestionsByKeyword(value);
         response.push(...tikiResponse)
+        response = removeDuplicates(response);
         setSuggestions(response);
     };
+
+
     const goToNewSearch = (value) => {
-        console.log(value)
         props.handleRefresh();
         localStorage.setItem("searchValue", value);
         navigate(`/search-results/${value}`)
@@ -52,6 +56,7 @@ const SearchHeading = (props) => {
                     <AutoComplete
                         style={{
                             width: "50vw",
+                            height: "5vh",
                         }}
                         ref={searchRef}
                         options={suggestions}
@@ -59,6 +64,7 @@ const SearchHeading = (props) => {
                         value={inputValue}
                         onChange={setInputValue}
                         autoFocus={false}
+                        defaultOpen={false}
                     >
                         <Search
                             size="large"
