@@ -11,6 +11,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 11vh;
+    padding-top: 30px;
     width: 50vw;
 }

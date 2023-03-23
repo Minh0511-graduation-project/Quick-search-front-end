@@ -14,6 +14,7 @@ const SearchResults = () => {
     const [shopeeProducts, setShopeeProducts] = useState();
     const [lazadaProducts, setLazadaProducts] = useState();
     const [refreshPage, setRefreshPage] = useState(false);
+
     const handleRefresh = () => {
         setRefreshPage((current) => !current);
     };
@@ -85,7 +86,9 @@ const SearchResults = () => {
     }, [refreshPage]);
     return (
         <Layout className={"search-results"}>
-            <SearchHeading handleRefresh={handleRefresh}/>
+            <SearchHeading
+                handleRefresh={handleRefresh}
+            />
             <Space className={"tiki"}>
                 <Collapse defaultActiveKey={['1']}>
                     <Panel header="Tiki"

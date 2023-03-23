@@ -15,8 +15,8 @@ const removeDuplicates = require('../../support/helper')
 const SearchHeading = (props) => {
     const [inputValue, setInputValue] = useState();
     const [suggestions, setSuggestions] = useState([]);
+    const searchInputRef = useRef(null);
     const navigate = useNavigate();
-    const searchRef = useRef(null);
 
     const handleSearch = async value => {
         let response = [];
@@ -39,8 +39,9 @@ const SearchHeading = (props) => {
     }
 
     useEffect(() => {
-        // Remove the focus from the search bar when the search results page loads
-        searchRef.current.blur();
+        searchInputRef.current.focus({
+            cursor: "empty",
+        })
     }, []);
 
     return (
@@ -56,9 +57,9 @@ const SearchHeading = (props) => {
                     <AutoComplete
                         style={{
                             width: "50vw",
-                            height: "5vh",
                         }}
-                        ref={searchRef}
+                        ref={searchInputRef}
+                        autoClearSearchValue={true}
                         options={suggestions}
                         onSearch={handleSearch}
                         value={inputValue}
@@ -68,12 +69,12 @@ const SearchHeading = (props) => {
                     >
                         <Search
                             size="large"
+                            ref={searchInputRef}
                             placeholder="Bạn muốn tìm gì?"
                             enterButton="Tìm kiếm"
                             prefix={<SearchOutlined/>}
                             className={"search-bar"}
                             onSearch={goToNewSearch}
-                            autoFocus={false}
                         />
                     </AutoComplete>
                 </Col>
