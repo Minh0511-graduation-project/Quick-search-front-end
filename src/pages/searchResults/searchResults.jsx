@@ -131,6 +131,7 @@ const SearchResults = () => {
                                         imageUrl={product.imageUrl}
                                         name={product.name}
                                         price={product.price}
+                                        productUrl={product.productUrl}
                                     />
                                 </Col>
                             ))}
@@ -151,6 +152,7 @@ const SearchResults = () => {
                                         imageUrl={product.imageUrl}
                                         name={product.name}
                                         price={product.price}
+                                        productUrl={product.productUrl}
                                     />
                                 </Col>
                             ))}
@@ -172,6 +174,7 @@ const SearchResults = () => {
                                         imageUrl={product.imageUrl}
                                         name={product.name}
                                         price={product.price}
+                                        productUrl={product.productUrl}
                                     />
                                 </Col>
                             ))}
