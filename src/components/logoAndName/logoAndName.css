@@ -20,7 +20,8 @@
     align-items: center;
     height: 11vh;
     font-size: 40px;
-    font-family: 'DMC', sans-serif;
+    font-family: sans-serif;
+    font-weight: bold;
 }
 
 .logo-and-name{

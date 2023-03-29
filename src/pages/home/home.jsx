@@ -47,7 +47,7 @@ const Home = () => {
                     src={logo} width={300} height={300}/>
             </Space>
             <Space className={"app-name-home"}>
-                SHOP SEARCH SYSTEM
+                TRENDY SEARCH
             </Space>
             <Space className={"search-bar-home"}>
                 <AutoComplete

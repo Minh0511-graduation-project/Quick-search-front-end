@@ -1,6 +1,5 @@
-import {Card, Layout} from "antd";
+import {Card, Layout, Space} from "antd";
 import "./productCard.css";
-import Meta from "antd/es/card/Meta";
 
 const productCard = (props) => {
     const handleCardClick = () => {
@@ -11,11 +10,22 @@ const productCard = (props) => {
             <Card
                 hoverable
                 bordered={true}
-                style={{ width: 240 }}
+                style={{
+                    width: 240,
+                }}
                 cover={<img alt="example" src={props.imageUrl} />}
                 onClick={handleCardClick}
             >
-                <Meta title={props.name} description={props.price} />
+                <Space
+                    className={"product-card-name"}
+                >
+                    {props.name}
+                </Space>
+                <Space
+                    className={"product-card-price"}
+                >
+                    {props.price}
+                </Space>
             </Card>
         </Layout>
     );

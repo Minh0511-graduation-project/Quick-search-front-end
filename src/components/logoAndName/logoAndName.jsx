@@ -10,7 +10,7 @@ const LogoAndName = () => {
                     <Image className={"logo"} src={logo} width={80} height={80} />
                 </Col>
                 <Col span={18} className={"app-name"}>
-                    Shop search system
+                    Trendy Search
                 </Col>
             </Row>
         </Layout>

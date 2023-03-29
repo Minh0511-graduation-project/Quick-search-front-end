@@ -24,7 +24,8 @@
     align-items: center;
     height: 5vh;
     font-size: 50px;
-    font-family: 'DMC', sans-serif;
+    font-family: sans-serif;
+    font-weight: bold;
 }
 
 .search-bar-home{

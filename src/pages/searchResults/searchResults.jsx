@@ -7,8 +7,7 @@ import ShopeeService from "../../services/shopee.service";
 import TikiService from "../../services/tiki.service";
 import LazadaService from "../../services/lazada.service";
 import imagePlaceHolder from "../../assets/No-Image-Placeholder.svg.png";
-
-const {Panel} = Collapse;
+import styled from 'styled-components';
 
 const SearchResults = () => {
     const [tikiProducts, setTikiProducts] = useState();
@@ -110,21 +109,38 @@ const SearchResults = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [refreshPage]);
 
-    console.log(tikiArrLen)
-    console.log(shopeeArrLen)
-    console.log(lazadaArrLen)
+    const StyledCollapse = styled(Collapse.Panel)`
+      &&& {
+        border: none;
+        border-radius: 15px;
+        background-color: #4285F4;
+        box-shadow: none;
+      }
+
+      .ant-collapse-content {
+        background: rgb(220, 229, 251);
+      }
+    `;
+
     return (
         <Layout className={"search-results"}>
             <SearchHeading
                 handleRefresh={handleRefresh}
             />
             <Space className={"tiki"}>
-                <Collapse defaultActiveKey={['1']}>
-                    <Panel header="Tiki"
-                           className={"tiki-panel"}
-                           key={tikiArrLen > 0 ? "1" : "0"}
+                <Collapse
+                    defaultActiveKey={['1']}
+                >
+                    <StyledCollapse header="Tiki"
+                                    className={"tiki-panel"}
+                                    key={tikiArrLen > 0 ? "1" : "0"}
                     >
-                        <Row gutter={30}>
+                        <Row gutter={30}
+                            style={{
+                                display: "flex",
+                                justifyContent: "center",
+                            }}
+                        >
                             {tikiProducts?.map((product, index) => (
                                 <Col span={4.8} key={product.id}>
                                     <ProductCard
@@ -136,16 +152,21 @@ const SearchResults = () => {
                                 </Col>
                             ))}
                         </Row>
-                    </Panel>
+                    </StyledCollapse>
                 </Collapse>
             </Space>
             <Space className={"shopee"}>
                 <Collapse defaultActiveKey={['1']}>
-                    <Panel header="Shopee"
+                    <StyledCollapse header="Shopee"
                            className={"shopee-panel"}
                            key={shopeeArrLen > 0 ? "1" : "0"}
                     >
-                        <Row gutter={30}>
+                        <Row gutter={30}
+                             style={{
+                                 display: "flex",
+                                 justifyContent: "center",
+                             }}
+                        >
                             {shopeeProducts?.map((product, index) => (
                                 <Col span={4.8} key={product.id}>
                                     <ProductCard
@@ -157,17 +178,22 @@ const SearchResults = () => {
                                 </Col>
                             ))}
                         </Row>
-                    </Panel>
+                    </StyledCollapse>
                 </Collapse>
             </Space>
             <Space className={"lazada"}>
                 <Collapse defaultActiveKey={['1']}>
-                    <Panel
+                    <StyledCollapse
                         header="Lazada"
                         className={"lazada-panel"}
                         key={lazadaArrLen > 0 ? "1" : "0"}
                     >
-                        <Row gutter={30}>
+                        <Row gutter={30}
+                             style={{
+                                 display: "flex",
+                                 justifyContent: "center",
+                             }}
+                        >
                             {lazadaProducts?.map((product, index) => (
                                 <Col span={4.8} key={product.id}>
                                     <ProductCard
@@ -179,7 +205,7 @@ const SearchResults = () => {
                                 </Col>
                             ))}
                         </Row>
-                    </Panel>
+                    </StyledCollapse>
                 </Collapse>
             </Space>
         </Layout>

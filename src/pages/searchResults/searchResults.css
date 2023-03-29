@@ -5,7 +5,7 @@
 
 .tiki{
     padding-top: 50px;
-    padding-left: 200px;
+    padding-left: 250px;
 }
 
 .tiki-panel{
@@ -14,7 +14,7 @@
 
 .shopee{
     padding-top: 50px;
-    padding-left: 200px;
+    padding-left: 250px;
 }
 
 .shopee-panel{
@@ -23,9 +23,13 @@
 
 .lazada{
     padding-top: 50px;
-    padding-left: 200px;
+    padding-left: 250px;
 }
 
 .lazada-panel{
     width: 72vw;
+}
+
+.ant-collapse-content {
+    background: palegreen;
 }
