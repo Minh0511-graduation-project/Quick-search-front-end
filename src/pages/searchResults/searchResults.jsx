@@ -8,6 +8,9 @@ import TikiService from "../../services/tiki.service";
 import LazadaService from "../../services/lazada.service";
 import imagePlaceHolder from "../../assets/No-Image-Placeholder.svg.png";
 import styled from 'styled-components';
+import TikiLogo from '../../assets/Tiki_logo.png';
+import LazadaLogo from '../../assets/Lazada_logo.png';
+import ShopeeLogo from '../../assets/Shopee_logo.jpg';
 
 const SearchResults = () => {
     const [tikiProducts, setTikiProducts] = useState();
@@ -131,15 +134,31 @@ const SearchResults = () => {
                 <Collapse
                     defaultActiveKey={['1']}
                 >
-                    <StyledCollapse header="Tiki"
-                                    className={"tiki-panel"}
-                                    key={tikiArrLen > 0 ? "1" : "0"}
+                    <StyledCollapse
+                        header={
+                            <Row>
+                                <Col span={1}>
+                                    <img
+                                        src={TikiLogo}
+                                        alt="tiki-logo"
+                                        className={"brand-logo"}
+                                    />
+                                </Col>
+                                <Col span={5}
+                                    className={"panel-heading"}
+                                >
+                                    Tiki
+                                </Col>
+                            </Row>
+                        }
+                        className={"tiki-panel"}
+                        key={tikiArrLen > 0 ? "1" : "0"}
                     >
                         <Row gutter={30}
-                            style={{
-                                display: "flex",
-                                justifyContent: "center",
-                            }}
+                             style={{
+                                 display: "flex",
+                                 justifyContent: "center",
+                             }}
                         >
                             {tikiProducts?.map((product, index) => (
                                 <Col span={4.8} key={product.id}>
@@ -157,9 +176,25 @@ const SearchResults = () => {
             </Space>
             <Space className={"shopee"}>
                 <Collapse defaultActiveKey={['1']}>
-                    <StyledCollapse header="Shopee"
-                           className={"shopee-panel"}
-                           key={shopeeArrLen > 0 ? "1" : "0"}
+                    <StyledCollapse
+                        header={
+                            <Row>
+                                <Col span={1}>
+                                    <img
+                                        src={ShopeeLogo}
+                                        alt="shopee-logo"
+                                        className={"brand-logo"}
+                                    />
+                                </Col>
+                                <Col span={5}
+                                     className={"panel-heading"}
+                                >
+                                    Shopee
+                                </Col>
+                            </Row>
+                        }
+                        className={"shopee-panel"}
+                        key={shopeeArrLen > 0 ? "1" : "0"}
                     >
                         <Row gutter={30}
                              style={{
@@ -184,7 +219,22 @@ const SearchResults = () => {
             <Space className={"lazada"}>
                 <Collapse defaultActiveKey={['1']}>
                     <StyledCollapse
-                        header="Lazada"
+                        header={
+                            <Row>
+                                <Col span={1}>
+                                    <img
+                                        src={LazadaLogo}
+                                        alt="lazada-logo"
+                                        className={"brand-logo"}
+                                    />
+                                </Col>
+                                <Col span={5}
+                                     className={"panel-heading"}
+                                >
+                                    Lazada
+                                </Col>
+                            </Row>
+                        }
                         className={"lazada-panel"}
                         key={lazadaArrLen > 0 ? "1" : "0"}
                     >

@@ -33,3 +33,15 @@
 .ant-collapse-content {
     background: palegreen;
 }
+
+.brand-logo{
+    max-height: 4vh;
+}
+
+.panel-heading{
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: aliceblue;
+}

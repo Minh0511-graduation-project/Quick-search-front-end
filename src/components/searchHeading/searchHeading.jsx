@@ -50,7 +50,7 @@ const SearchHeading = (props) => {
                 >
                     <LogoAndName/>
                 </Col>
-                <Col span={15}>
+                <Col span={18}>
                     <AutoComplete
                         style={{
                             width: "50vw",
