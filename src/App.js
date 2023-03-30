@@ -9,7 +9,11 @@ function App() {
         <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/search-results">
-                <Route path=":value" element={<SearchResults/>} />
+                <Route path=":value">
+                    <Route path="shop-products" element={<SearchResults/>} />
+                    <Route path="keyword-search-statistic" element={<SearchResults/>} />
+                    <Route path="product-price-comparison" element={<SearchResults/>} />
+                </Route>
             </Route>
         </Routes>
     );

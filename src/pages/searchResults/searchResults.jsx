@@ -11,6 +11,7 @@ import styled from 'styled-components';
 import TikiLogo from '../../assets/Tiki_logo.png';
 import LazadaLogo from '../../assets/Lazada_logo.png';
 import ShopeeLogo from '../../assets/Shopee_logo.jpg';
+import Sidebar from "../../components/sidebar/sidebar";
 
 const SearchResults = () => {
     const [tikiProducts, setTikiProducts] = useState();
@@ -130,134 +131,139 @@ const SearchResults = () => {
             <SearchHeading
                 handleRefresh={handleRefresh}
             />
-            <Space className={"tiki"}>
-                <Collapse
-                    defaultActiveKey={['1']}
-                >
-                    <StyledCollapse
-                        header={
-                            <Row>
-                                <Col span={1}>
-                                    <img
-                                        src={TikiLogo}
-                                        alt="tiki-logo"
-                                        className={"brand-logo"}
-                                    />
-                                </Col>
-                                <Col span={5}
-                                    className={"panel-heading"}
-                                >
-                                    Tiki
-                                </Col>
-                            </Row>
-                        }
-                        className={"tiki-panel"}
-                        key={tikiArrLen > 0 ? "1" : "0"}
-                    >
-                        <Row gutter={30}
-                             style={{
-                                 display: "flex",
-                                 justifyContent: "center",
-                             }}
+            <Layout className={"search-results-side"}>
+                <Sidebar />
+                <Layout className={"search-results-content"}>
+                    <Space className={"tiki"}>
+                        <Collapse
+                            defaultActiveKey={['1']}
                         >
-                            {tikiProducts?.map((product, index) => (
-                                <Col span={4.8} key={product.id}>
-                                    <ProductCard
-                                        imageUrl={product.imageUrl}
-                                        name={product.name}
-                                        price={product.price}
-                                        productUrl={product.productUrl}
-                                    />
-                                </Col>
-                            ))}
-                        </Row>
-                    </StyledCollapse>
-                </Collapse>
-            </Space>
-            <Space className={"shopee"}>
-                <Collapse defaultActiveKey={['1']}>
-                    <StyledCollapse
-                        header={
-                            <Row>
-                                <Col span={1}>
-                                    <img
-                                        src={ShopeeLogo}
-                                        alt="shopee-logo"
-                                        className={"brand-logo"}
-                                    />
-                                </Col>
-                                <Col span={5}
-                                     className={"panel-heading"}
+                            <StyledCollapse
+                                header={
+                                    <Row>
+                                        <Col span={1}>
+                                            <img
+                                                src={TikiLogo}
+                                                alt="tiki-logo"
+                                                className={"brand-logo"}
+                                            />
+                                        </Col>
+                                        <Col span={5}
+                                             className={"panel-heading"}
+                                        >
+                                            Tiki
+                                        </Col>
+                                    </Row>
+                                }
+                                className={"tiki-panel"}
+                                key={tikiArrLen > 0 ? "1" : "0"}
+                            >
+                                <Row gutter={30}
+                                     style={{
+                                         display: "flex",
+                                         justifyContent: "center",
+                                     }}
                                 >
-                                    Shopee
-                                </Col>
-                            </Row>
-                        }
-                        className={"shopee-panel"}
-                        key={shopeeArrLen > 0 ? "1" : "0"}
-                    >
-                        <Row gutter={30}
-                             style={{
-                                 display: "flex",
-                                 justifyContent: "center",
-                             }}
-                        >
-                            {shopeeProducts?.map((product, index) => (
-                                <Col span={4.8} key={product.id}>
-                                    <ProductCard
-                                        imageUrl={product.imageUrl}
-                                        name={product.name}
-                                        price={product.price}
-                                        productUrl={product.productUrl}
-                                    />
-                                </Col>
-                            ))}
-                        </Row>
-                    </StyledCollapse>
-                </Collapse>
-            </Space>
-            <Space className={"lazada"}>
-                <Collapse defaultActiveKey={['1']}>
-                    <StyledCollapse
-                        header={
-                            <Row>
-                                <Col span={1}>
-                                    <img
-                                        src={LazadaLogo}
-                                        alt="lazada-logo"
-                                        className={"brand-logo"}
-                                    />
-                                </Col>
-                                <Col span={5}
-                                     className={"panel-heading"}
+                                    {tikiProducts?.map((product, index) => (
+                                        <Col span={4.8} key={product.id}>
+                                            <ProductCard
+                                                imageUrl={product.imageUrl}
+                                                name={product.name}
+                                                price={product.price}
+                                                productUrl={product.productUrl}
+                                            />
+                                        </Col>
+                                    ))}
+                                </Row>
+                            </StyledCollapse>
+                        </Collapse>
+                    </Space>
+                    <Space className={"shopee"}>
+                        <Collapse defaultActiveKey={['1']}>
+                            <StyledCollapse
+                                header={
+                                    <Row>
+                                        <Col span={1}>
+                                            <img
+                                                src={ShopeeLogo}
+                                                alt="shopee-logo"
+                                                className={"brand-logo"}
+                                            />
+                                        </Col>
+                                        <Col span={5}
+                                             className={"panel-heading"}
+                                        >
+                                            Shopee
+                                        </Col>
+                                    </Row>
+                                }
+                                className={"shopee-panel"}
+                                key={shopeeArrLen > 0 ? "1" : "0"}
+                            >
+                                <Row gutter={30}
+                                     style={{
+                                         display: "flex",
+                                         justifyContent: "center",
+                                     }}
                                 >
-                                    Lazada
-                                </Col>
-                            </Row>
-                        }
-                        className={"lazada-panel"}
-                        key={lazadaArrLen > 0 ? "1" : "0"}
-                    >
-                        <Row gutter={30}
-                             style={{
-                                 display: "flex",
-                                 justifyContent: "center",
-                             }}
-                        >
-                            {lazadaProducts?.map((product, index) => (
-                                <Col span={4.8} key={product.id}>
-                                    <ProductCard
-                                        imageUrl={product.imageUrl}
-                                        name={product.name}
-                                        price={product.price}
-                                        productUrl={product.productUrl}
-                                    />
-                                </Col>
-                            ))}
-                        </Row>
-                    </StyledCollapse>
-                </Collapse>
-            </Space>
+                                    {shopeeProducts?.map((product, index) => (
+                                        <Col span={4.8} key={product.id}>
+                                            <ProductCard
+                                                imageUrl={product.imageUrl}
+                                                name={product.name}
+                                                price={product.price}
+                                                productUrl={product.productUrl}
+                                            />
+                                        </Col>
+                                    ))}
+                                </Row>
+                            </StyledCollapse>
+                        </Collapse>
+                    </Space>
+                    <Space className={"lazada"}>
+                        <Collapse defaultActiveKey={['1']}>
+                            <StyledCollapse
+                                header={
+                                    <Row>
+                                        <Col span={1}>
+                                            <img
+                                                src={LazadaLogo}
+                                                alt="lazada-logo"
+                                                className={"brand-logo"}
+                                            />
+                                        </Col>
+                                        <Col span={5}
+                                             className={"panel-heading"}
+                                        >
+                                            Lazada
+                                        </Col>
+                                    </Row>
+                                }
+                                className={"lazada-panel"}
+                                key={lazadaArrLen > 0 ? "1" : "0"}
+                            >
+                                <Row gutter={30}
+                                     style={{
+                                         display: "flex",
+                                         justifyContent: "center",
+                                     }}
+                                >
+                                    {lazadaProducts?.map((product, index) => (
+                                        <Col span={4.8} key={product.id}>
+                                            <ProductCard
+                                                imageUrl={product.imageUrl}
+                                                name={product.name}
+                                                price={product.price}
+                                                productUrl={product.productUrl}
+                                            />
+                                        </Col>
+                                    ))}
+                                </Row>
+                            </StyledCollapse>
+                        </Collapse>
+                    </Space>
+                </Layout>
+            </Layout>
         </Layout>
     );
 };

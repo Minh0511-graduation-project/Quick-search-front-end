@@ -1,5 +1,5 @@
 import "./searchHeading.css"
-import {AutoComplete, Col, Row} from "antd";
+import {Affix, AutoComplete, Col, Row} from "antd";
 import {SearchOutlined} from "@ant-design/icons";
 import Layout from "antd/es/layout/layout";
 import Search from "antd/es/input/Search";
@@ -37,46 +37,52 @@ const SearchHeading = (props) => {
         } else {
             props.handleRefresh();
             localStorage.setItem("searchValue", value);
-            navigate(`/search-results/${value}`)
+            navigate(`/search-results/${value}/shop-products`)
         }
     }
 
     return (
-        <Layout className={"search-heading"}>
-            <Row>
-                <Col span={6}
-                    onClick={() => navigate("/")}
-                     style={{cursor: "pointer"}}
-                >
-                    <LogoAndName/>
-                </Col>
-                <Col span={18}>
-                    <AutoComplete
-                        style={{
-                            width: "50vw",
-                        }}
-                        autoClearSearchValue={true}
-                        options={suggestions}
-                        onSearch={handleSearch}
-                        onSelect={goToNewSearch}
-                        value={inputValue}
-                        onChange={setInputValue}
+        <Affix
+            offsetTop={0}
+        >
+            <Layout
+                className={"search-heading"}
+            >
+                <Row>
+                    <Col span={6}
+                         onClick={() => navigate("/")}
+                         style={{cursor: "pointer"}}
                     >
-                        <Search
-                            size="large"
-                            placeholder="Bạn muốn tìm gì?"
-                            enterButton="Tìm kiếm"
-                            prefix={<SearchOutlined/>}
-                            className={"search-bar"}
-                            onSearch={goToNewSearch}
-                            allowClear={true}
-                            onBlur={() => searchInputRef.current?.blur()}
+                        <LogoAndName/>
+                    </Col>
+                    <Col span={18}>
+                        <AutoComplete
+                            style={{
+                                width: "50vw",
+                            }}
+                            autoClearSearchValue={true}
+                            options={suggestions}
+                            onSearch={handleSearch}
+                            onSelect={goToNewSearch}
+                            value={inputValue}
+                            onChange={setInputValue}
+                        >
+                            <Search
+                                size="large"
+                                placeholder="Bạn muốn tìm gì?"
+                                enterButton="Tìm kiếm"
+                                prefix={<SearchOutlined/>}
+                                className={"search-bar"}
+                                onSearch={goToNewSearch}
+                                allowClear={true}
+                                onBlur={() => searchInputRef.current?.blur()}
 
-                        />
-                    </AutoComplete>
-                </Col>
-            </Row>
-        </Layout>
+                            />
+                        </AutoComplete>
+                    </Col>
+                </Row>
+            </Layout>
+        </Affix>
     );
 };
 

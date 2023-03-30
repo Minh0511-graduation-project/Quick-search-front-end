@@ -1,11 +1,22 @@
 .search-results{
     background: #ADD8E6;
+    height: 100vh;
+}
+
+.search-results-side{
+    background: #ADD8E6;
+    height: 100%;
+}
+
+.search-results-content{
+    background: #ADD8E6;
     padding-bottom: 20px;
+    overflow: auto;
 }
 
 .tiki{
     padding-top: 50px;
-    padding-left: 250px;
+    padding-left: 120px;
 }
 
 .tiki-panel{
@@ -14,7 +25,7 @@
 
 .shopee{
     padding-top: 50px;
-    padding-left: 250px;
+    padding-left: 120px;
 }
 
 .shopee-panel{
@@ -23,7 +34,7 @@
 
 .lazada{
     padding-top: 50px;
-    padding-left: 250px;
+    padding-left: 120px;
 }
 
 .lazada-panel{
