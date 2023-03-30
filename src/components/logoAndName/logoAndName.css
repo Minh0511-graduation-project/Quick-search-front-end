@@ -19,11 +19,11 @@
     justify-content: left;
     align-items: center;
     height: 11vh;
-    font-size: 40px;
+    font-size: 30px;
     font-family: sans-serif;
     font-weight: bold;
 }
 
 .logo-and-name{
-    background: #ADD8E6;
+    background: #4285F4;
 }

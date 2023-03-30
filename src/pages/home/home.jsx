@@ -35,7 +35,7 @@ const Home = () => {
             // do nothing
         } else {
             localStorage.setItem("searchValue", value);
-            navigate(`/search-results/${value}`)
+            navigate(`/search-results/${value}/shop-products`)
         }
     }
     return (
