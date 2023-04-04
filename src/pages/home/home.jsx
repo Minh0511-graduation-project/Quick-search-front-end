@@ -8,7 +8,6 @@ import {useState} from "react";
 import ShopeeService from "../../services/shopee.service";
 import LazadaService from "../../services/lazada.service";
 import TikiService from "../../services/tiki.service";
-
 const removeDuplicates = require('../../support/helper')
 
 const {Search} = Input;
@@ -19,12 +18,15 @@ const Home = () => {
     const navigate = useNavigate();
 
     const handleSearch = async value => {
+        console.log(value)
+        const newValue = value.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        console.log(newValue)
         let response = [];
-        const shopeeResponse = await ShopeeService.listSuggestionsByKeyword(value);
+        const shopeeResponse = await ShopeeService.listSuggestionsByKeyword(newValue);
         response.push(...shopeeResponse)
-        const lazadaResponse = await LazadaService.listSuggestionsByKeyword(value);
+        const lazadaResponse = await LazadaService.listSuggestionsByKeyword(newValue);
         response.push(...lazadaResponse)
-        const tikiResponse = await TikiService.listSuggestionsByKeyword(value);
+        const tikiResponse = await TikiService.listSuggestionsByKeyword(newValue);
         response.push(...tikiResponse)
         response = removeDuplicates(response);
         setSuggestions(response);

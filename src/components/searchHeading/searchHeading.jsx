@@ -19,12 +19,13 @@ const SearchHeading = (props) => {
     const navigate = useNavigate();
 
     const handleSearch = async value => {
+        const newValue = value.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         let response = [];
-        const shopeeResponse = await ShopeeService.listSuggestionsByKeyword(value);
+        const shopeeResponse = await ShopeeService.listSuggestionsByKeyword(newValue);
         response.push(...shopeeResponse)
-        const lazadaResponse = await LazadaService.listSuggestionsByKeyword(value);
+        const lazadaResponse = await LazadaService.listSuggestionsByKeyword(newValue);
         response.push(...lazadaResponse)
-        const tikiResponse = await TikiService.listSuggestionsByKeyword(value);
+        const tikiResponse = await TikiService.listSuggestionsByKeyword(newValue);
         response.push(...tikiResponse)
         response = removeDuplicates(response);
         setSuggestions(response);

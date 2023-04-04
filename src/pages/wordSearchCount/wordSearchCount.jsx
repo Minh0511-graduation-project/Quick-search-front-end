@@ -22,7 +22,6 @@ const WordSearchCount = () => {
     const getTikiKeywordCount = () => {
         TikiService.getTikiKeywordCount(keyword).then((response) => {
             if (response != null) {
-                console.log(response[0])
                 setTikiKeywordCount(response[0].count)
             } else {
                 setTikiKeywordCount(0)
@@ -33,7 +32,6 @@ const WordSearchCount = () => {
     const getShopeeKeywordCount = () => {
         ShopeeService.getShopeeKeywordCount(keyword).then((response) => {
             if (response != null) {
-                console.log(response[0])
                 setShopeeKeywordCount(response[0].count)
             } else {
                 setShopeeKeywordCount(0)
@@ -44,7 +42,6 @@ const WordSearchCount = () => {
     const getLazadaKeywordCount = () => {
         LazadaService.getLazadaKeywordCount(keyword).then((response) => {
             if (response != null) {
-                console.log(response[0])
                 setLazadaKeywordCount(response[0].count)
             } else {
                 setLazadaKeywordCount(0)
@@ -62,11 +59,6 @@ const WordSearchCount = () => {
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [refreshPage]);
-
-    console.log(tikiKeywordCount)
-    console.log(shopeeKeywordCount)
-    console.log(lazadaKeywordCount)
-
 
     const data = [
         {
