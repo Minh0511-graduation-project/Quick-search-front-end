@@ -39,6 +39,19 @@ class LazadaService {
                 console.log(error);
             });
     }
+
+    getLazadaKeywordCount(keyword) {
+        return axios.get(`${REACT_APP_API_URL}/suggestionCount?keyword=${keyword}&site=lazada`, {
+            withCredentials: true,
+        }).then(
+            function (response) {
+                return response.data.data.data;
+            }
+        )
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
 }
 
 // eslint-disable-next-line
