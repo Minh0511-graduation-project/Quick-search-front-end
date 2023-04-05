@@ -1,0 +1,12 @@
+.top-search{
+    display: inline-block;
+    padding-right: 20px;
+    background: #ADD8E6;
+    font-size: 15px;
+}
+
+.top-search-div{
+    padding-left: 20vw;
+    background: #ADD8E6;
+    padding-top: 16px;
+}

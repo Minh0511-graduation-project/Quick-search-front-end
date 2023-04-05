@@ -2,6 +2,7 @@ import axios from 'axios';
 require("dotenv").config()
 
 const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
+const REACT_APP_TIKI_API_URL = process.env.REACT_APP_TIKI_API_URL;
 
 class TikiService {
     listSuggestionsByKeyword(keyword) {
@@ -46,6 +47,27 @@ class TikiService {
         }).then(
             function (response) {
                 return response.data.data.data;
+            }
+        )
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+    getTikiTopSearch() {
+        return axios({
+            method: 'post',
+            url: `${REACT_APP_TIKI_API_URL}`,
+            data: {
+                "product_id": [
+                    249220939
+                ],
+                "excluded_business": 157998,
+                "payment_model": "CPC",
+            }
+        }).then(
+            function (response) {
+                return response.data.data.keywords;
             }
         )
             .catch(function (error) {

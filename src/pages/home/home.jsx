@@ -8,6 +8,7 @@ import {useState} from "react";
 import ShopeeService from "../../services/shopee.service";
 import LazadaService from "../../services/lazada.service";
 import TikiService from "../../services/tiki.service";
+import RecommendSearch from "../../components/recommendSearchKeyword/recommendSearch";
 const removeDuplicates = require('../../support/helper')
 
 const {Search} = Input;
@@ -38,6 +39,7 @@ const Home = () => {
             navigate(`/search-results/${value}/shop-products`)
         }
     }
+
     return (
         <Layout
             className={"Home"}>
@@ -69,6 +71,9 @@ const Home = () => {
                     />
                 </AutoComplete>
             </Space>
+            <Layout>
+                <RecommendSearch />
+            </Layout>
         </Layout>
     );
 };
