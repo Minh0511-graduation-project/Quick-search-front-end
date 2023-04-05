@@ -5,6 +5,7 @@ const productCard = (props) => {
     const handleCardClick = () => {
         window.open(props.productUrl, '_blank');
     };
+
     return(
         <Layout className={"product-card"}>
             <Card

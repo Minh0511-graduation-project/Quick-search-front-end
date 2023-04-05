@@ -20,8 +20,6 @@ const PriceComparison = () => {
 
     const keyword = localStorage.getItem("searchValue").toLowerCase();
 
-    const pattern = /\d+\.\d+/g;
-
     const getTikiProducts = () => {
         TikiService.listProductsBySearchTerm(keyword).then((listProducts) => {
             const productArr = [];
@@ -38,12 +36,12 @@ const PriceComparison = () => {
             }
             let priceArr = []
             productArr.forEach(item => {
-                const matches = item.match(pattern);
-                if (matches) {
-                    priceArr = [...priceArr, ...matches];
-                }
+                let priceStatArr = item.split(/ - |\n/); // split the string by "-" or newline
+                priceStatArr.forEach(price => {
+                    let num = parseInt(price.replace('₫', '').replace(/\./g, ''));
+                    if (!isNaN(num)) priceArr.push(num);
+                });
             })
-            priceArr = priceArr.map(num => parseInt(num.replace('.', '')));
             let average = 0
             if (priceArr.length > 0) {
                 const sum = priceArr.reduce((total, num) => total + num, 0);
@@ -69,12 +67,12 @@ const PriceComparison = () => {
             }
             let priceArr = []
             productArr.forEach(item => {
-                const matches = item.match(pattern);
-                if (matches) {
-                    priceArr = [...priceArr, ...matches];
-                }
+                let priceStatArr = item.split(/ - |\n/); // split the string by "-" or newline
+                priceStatArr.forEach(price => {
+                    let num = parseInt(price.replace('₫', '').replace(/\./g, ''));
+                    if (!isNaN(num)) priceArr.push(num);
+                });
             })
-            priceArr = priceArr.map(num => parseInt(num.replace('.', '')));
             let average = 0
             if (priceArr.length > 0) {
                 const sum = priceArr.reduce((total, num) => total + num, 0);
@@ -100,12 +98,12 @@ const PriceComparison = () => {
             }
             let priceArr = []
             productArr.forEach(item => {
-                const matches = item.match(pattern);
-                if (matches) {
-                    priceArr = [...priceArr, ...matches];
-                }
+                let priceStatArr = item.split(/ - |\n/); // split the string by "-" or newline
+                priceStatArr.forEach(price => {
+                    let num = parseInt(price.replace('₫', '').replace(/\./g, ''));
+                    if (!isNaN(num)) priceArr.push(num);
+                });
             })
-            priceArr = priceArr.map(num => parseInt(num.replace('.', '')));
             let average = 0
             if (priceArr.length > 0) {
                 const sum = priceArr.reduce((total, num) => total + num, 0);
@@ -125,11 +123,6 @@ const PriceComparison = () => {
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [refreshPage]);
-
-    console.log(tikiPrice)
-    console.log(lazadaPrice)
-    console.log(shopeePrice)
-
 
     const priceData = [
         {

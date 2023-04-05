@@ -36,6 +36,8 @@ const SearchResults = () => {
                         if (listProducts[i].imageUrl == null || listProducts[i].imageUrl === undefined) {
                             listProducts[i].imageUrl = imagePlaceHolder;
                         }
+                        const number = parseInt(listProducts[i].price.slice(1).replace(',', '.'));
+                        listProducts[i].price = "₫" + number.toLocaleString("vi-VN");
                         productArr.push(listProducts[i]);
                     }
                 } else {
@@ -43,6 +45,8 @@ const SearchResults = () => {
                         if (listProducts[i].imageUrl == null || listProducts[i].imageUrl === undefined) {
                             listProducts[i].imageUrl = imagePlaceHolder;
                         }
+                        const number = parseInt(listProducts[i].price.slice(1).replace(',', '.'));
+                        listProducts[i].price = "₫" + number.toLocaleString("vi-VN");
                         productArr.push(listProducts[i]);
                     }
                 }
@@ -125,10 +129,6 @@ const SearchResults = () => {
         background: rgb(220, 229, 251);
       }
     `;
-
-    console.log(shopeeProducts)
-    console.log(lazadaProducts)
-    console.log(tikiProducts)
 
     return (
         <Layout className={"search-results"}>

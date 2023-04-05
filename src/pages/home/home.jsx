@@ -18,9 +18,7 @@ const Home = () => {
     const navigate = useNavigate();
 
     const handleSearch = async value => {
-        console.log(value)
         const newValue = value.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-        console.log(newValue)
         let response = [];
         const shopeeResponse = await ShopeeService.listSuggestionsByKeyword(newValue);
         response.push(...shopeeResponse)
