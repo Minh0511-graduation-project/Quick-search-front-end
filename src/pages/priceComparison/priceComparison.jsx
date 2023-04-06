@@ -18,7 +18,7 @@ const PriceComparison = () => {
         setRefreshPage((current) => !current);
     };
 
-    const keyword = localStorage.getItem("searchValue").toLowerCase();
+    const keyword = localStorage.getItem("searchValue");
 
     const getTikiProducts = () => {
         TikiService.listProductsBySearchTerm(keyword).then((listProducts) => {

@@ -25,7 +25,7 @@ const SearchResults = () => {
     const handleRefresh = () => {
         setRefreshPage((current) => !current);
     };
-    const searchTerm = localStorage.getItem("searchValue").toLowerCase();
+    const searchTerm = localStorage.getItem("searchValue");
 
     const getTikiProducts = () => {
         TikiService.listProductsBySearchTerm(searchTerm).then((listProducts) => {

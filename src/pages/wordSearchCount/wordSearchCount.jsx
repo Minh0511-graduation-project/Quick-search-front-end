@@ -17,7 +17,7 @@ const WordSearchCount = () => {
         setRefreshPage((current) => !current);
     };
 
-    const keyword = localStorage.getItem("searchValue").toLowerCase();
+    const keyword = localStorage.getItem("searchValue");
 
     const getTikiKeywordCount = () => {
         TikiService.getTikiKeywordCount(keyword).then((response) => {
