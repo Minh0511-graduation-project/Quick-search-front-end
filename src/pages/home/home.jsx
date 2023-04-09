@@ -6,7 +6,6 @@ import {SearchOutlined} from '@ant-design/icons';
 import {useNavigate} from "react-router-dom";
 import {useState} from "react";
 import ShopeeService from "../../services/shopee.service";
-import LazadaService from "../../services/lazada.service";
 import TikiService from "../../services/tiki.service";
 import RecommendSearch from "../../components/recommendSearchKeyword/recommendSearch";
 const removeDuplicates = require('../../support/helper')
@@ -23,8 +22,6 @@ const Home = () => {
         let response = [];
         const shopeeResponse = await ShopeeService.listSuggestionsByKeyword(newValue);
         response.push(...shopeeResponse)
-        const lazadaResponse = await LazadaService.listSuggestionsByKeyword(newValue);
-        response.push(...lazadaResponse)
         const tikiResponse = await TikiService.listSuggestionsByKeyword(newValue);
         response.push(...tikiResponse)
         response = removeDuplicates(response);

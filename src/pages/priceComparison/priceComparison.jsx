@@ -5,14 +5,12 @@ import {useEffect, useState} from "react";
 import TikiService from "../../services/tiki.service";
 import Sidebar from "../../components/sidebar/sidebar";
 import ShopeeService from "../../services/shopee.service";
-import LazadaService from "../../services/lazada.service";
 import {Bar} from '@ant-design/plots';
 
 const PriceComparison = () => {
     const [refreshPage, setRefreshPage] = useState(false);
     const [tikiPrice, setTikiPrice] = useState();
     const [shopeePrice, setShopeePrice] = useState();
-    const [lazadaPrice, setLazadaPrice] = useState();
 
     const handleRefresh = () => {
         setRefreshPage((current) => !current);
@@ -82,41 +80,9 @@ const PriceComparison = () => {
         })
     }
 
-    const getLazadaProducts = () => {
-        LazadaService.listProductsBySearchTerm(keyword).then((listProducts) => {
-            const productArr = [];
-            if (listProducts != null) {
-                if (listProducts.length > 5) {
-                    for (let i = 0; i < 5; i++) {
-                        productArr.push(listProducts[i].price);
-                    }
-                } else {
-                    for (let i = 0; i < listProducts.length; i++) {
-                        productArr.push(listProducts[i].price);
-                    }
-                }
-            }
-            let priceArr = []
-            productArr.forEach(item => {
-                let priceStatArr = item.split(/ - |\n/); // split the string by "-" or newline
-                priceStatArr.forEach(price => {
-                    let num = parseInt(price.replace('₫', '').replace(/\./g, ''));
-                    if (!isNaN(num)) priceArr.push(num);
-                });
-            })
-            let average = 0
-            if (priceArr.length > 0) {
-                const sum = priceArr.reduce((total, num) => total + num, 0);
-                average = Math.ceil(sum / priceArr.length);
-            }
-            setLazadaPrice(average);
-        })
-    }
-
     useEffect(() => {
         const fetchData = async () => {
             await getTikiProducts();
-            await getLazadaProducts();
             await getShopeeProducts();
         };
         fetchData()
@@ -132,10 +98,6 @@ const PriceComparison = () => {
         {
             platform: 'Shopee',
             value: shopeePrice,
-        },
-        {
-            platform: 'Lazada',
-            value: lazadaPrice,
         },
     ];
 

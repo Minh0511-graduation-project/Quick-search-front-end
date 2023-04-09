@@ -5,14 +5,12 @@ import {useEffect, useState} from "react";
 import TikiService from "../../services/tiki.service";
 import Sidebar from "../../components/sidebar/sidebar";
 import ShopeeService from "../../services/shopee.service";
-import LazadaService from "../../services/lazada.service";
 import {Bar} from '@ant-design/plots';
 
 const WordSearchCount = () => {
     const [refreshPage, setRefreshPage] = useState(false);
     const [tikiKeywordCount, setTikiKeywordCount] = useState();
     const [shopeeKeywordCount, setShopeeKeywordCount] = useState();
-    const [lazadaKeywordCount, setLazadaKeywordCount] = useState();
     const handleRefresh = () => {
         setRefreshPage((current) => !current);
     };
@@ -39,21 +37,10 @@ const WordSearchCount = () => {
         })
     }
 
-    const getLazadaKeywordCount = () => {
-        LazadaService.getLazadaKeywordCount(keyword).then((response) => {
-            if (response != null) {
-                setLazadaKeywordCount(response[0].count)
-            } else {
-                setLazadaKeywordCount(0)
-            }
-        })
-    }
-
     useEffect(() => {
         const fetchData = async () => {
             await getTikiKeywordCount();
             await getShopeeKeywordCount();
-            await getLazadaKeywordCount();
         };
         fetchData()
 
@@ -68,10 +55,6 @@ const WordSearchCount = () => {
         {
             platform: 'Shopee',
             value: shopeeKeywordCount,
-        },
-        {
-            platform: 'Lazada',
-            value: lazadaKeywordCount,
         },
     ];
 
