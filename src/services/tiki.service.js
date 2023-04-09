@@ -15,7 +15,7 @@ class TikiService {
                 let data = response.data.data.data;
                 const suggestionsArr = [];
                 if (data != null) {
-                    for (let i = 0;i < 5;i++) {
+                    for (let i = 0;i < data[0].suggestions.length;i++) {
                         suggestionsArr.push(suggestionVal(data[0].suggestions[i]));
                     }
                 }
@@ -56,7 +56,7 @@ class TikiService {
     getTikiTopSearch() {
         return axios.get(`${REACT_APP_API_URL}/tiki/topSearch`).then(
             function (response) {
-                return response.data.data.keywords;
+                return response.data.widgets[1].items;
             }
         )
             .catch(function (error) {

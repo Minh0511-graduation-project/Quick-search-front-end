@@ -9,7 +9,6 @@ const Sidebar = () => {
     const location = useLocation()
     const link1 = `/search-results/${encodeURIComponent(value)}/shop-products`
     const link2 = `/search-results/${encodeURIComponent(value)}/keyword-search-statistic`
-    const link3 = `/search-results/${encodeURIComponent(value)}/product-price-comparison`
 
     return(
         <Sider width={330}
@@ -33,13 +32,6 @@ const Sidebar = () => {
                     onClick={() => navigate(`/search-results/${value}/keyword-search-statistic`)}
                 >
                     Lượt tìm kiếm
-                </Menu.Item>
-                <Menu.Item
-                    className={"menu-item"}
-                    key={link3}
-                    onClick={() => navigate(`/search-results/${value}/product-price-comparison`)}
-                >
-                    So sánh giá
                 </Menu.Item>
             </Menu>
         </Sider>

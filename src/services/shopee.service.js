@@ -15,7 +15,7 @@ class ShopeeService {
                 let data = response.data.data.data;
                 const suggestionsArr = [];
                 if (data != null) {
-                    for (let i = 0;i < 5;i++) {
+                    for (let i = 0;i < data[0].suggestions.length;i++) {
                         suggestionsArr.push(suggestionVal(data[0].suggestions[i]));
                     }
                 }

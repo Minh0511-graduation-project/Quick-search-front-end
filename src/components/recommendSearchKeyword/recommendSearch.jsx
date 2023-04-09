@@ -12,14 +12,15 @@ const RecommendSearch = () => {
 
     const getTikiTopSearch = () => {
         TikiService.getTikiTopSearch().then((response) => {
+            console.log(response)
             const topSearches = []
             if (response.length <= 10) {
                 for (let i = 0; i < response.length; i++) {
-                    topSearches.push(response[i].keyword)
+                    topSearches.push(response[i].title)
                 }
             } else {
                 for (let i = 0; i < 10; i++) {
-                    topSearches.push(response[i].keyword)
+                    topSearches.push(response[i].title)
                 }
             }
             setTikiTopSearch(topSearches)
