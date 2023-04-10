@@ -1,0 +1,22 @@
+.search-results{
+    background: #ADD8E6;
+    height: 100vh;
+}
+
+.search-results-side{
+    background: #ADD8E6;
+    height: 100%;
+}
+
+.search-results-content{
+    background: #ADD8E6;
+    padding-bottom: 20px;
+    overflow: auto;
+}
+
+.search-results-stat{
+    background: #ADD8E6;
+    padding-top: 70px;
+    padding-bottom: 100px;
+    padding-left: 90px;
+}

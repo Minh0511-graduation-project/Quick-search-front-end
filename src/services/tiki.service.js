@@ -63,6 +63,17 @@ class TikiService {
                 console.log(error);
             });
     }
+
+    getTikiTopSearchByCategory() {
+        return axios.get(`${REACT_APP_API_URL}/tiki/topSearchByCategory`).then(
+            function (response) {
+                return response.data.data.keywords;
+            }
+        )
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
 }
 
 // eslint-disable-next-line
