@@ -16,11 +16,11 @@ const RecommendSearch = () => {
             const topSearches = []
             if (response.length <= 10) {
                 for (let i = 0; i < response.length; i++) {
-                    topSearches.push(response[i].title)
+                    topSearches.push(response[i].keyword)
                 }
             } else {
                 for (let i = 0; i < 10; i++) {
-                    topSearches.push(response[i].title)
+                    topSearches.push(response[i].keyword)
                 }
             }
             setTikiTopSearch(topSearches)
