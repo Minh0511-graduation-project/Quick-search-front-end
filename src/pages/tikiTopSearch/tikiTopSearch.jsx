@@ -4,6 +4,7 @@ import SearchHeading from "../../components/searchHeading/searchHeading";
 import {useEffect, useState} from "react";
 import Sidebar from "../../components/sidebar/sidebar";
 import tikiService from "../../services/tiki.service";
+import CategorySelection from "../../components/categorySelection/categorySelection";
 
 const TikiTopSearch = () => {
     const [refreshPage, setRefreshPage] = useState(false);
@@ -80,15 +81,16 @@ const TikiTopSearch = () => {
             <Layout className={"search-results-side"}>
                 <Sidebar />
                 <Layout className={"search-results-content"}>
-                    <Layout className={"search-results-stat"}>
-                        <Table
-                            columns={columns}
-                            dataSource={keywordData}
-                            style={{
-                                paddingLeft: 100,
-                                paddingRight: 200
-                            }}
-                        />
+                    <Layout>
+                        <Layout className={"tiki-top-search-category"}>
+                            <CategorySelection />
+                        </Layout>
+                        <Layout className={"tiki-top-search-table"}>
+                            <Table
+                                columns={columns}
+                                dataSource={keywordData}
+                            />
+                        </Layout>
                     </Layout>
                 </Layout>
             </Layout>

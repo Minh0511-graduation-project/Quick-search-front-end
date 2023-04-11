@@ -20,3 +20,16 @@
     padding-bottom: 100px;
     padding-left: 90px;
 }
+
+.tiki-top-search-category{
+    background: #ADD8E6;
+    padding-left: 100px;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+
+.tiki-top-search-table{
+    background: #ADD8E6;
+    padding-left: 100px;
+    padding-right: 200px;
+}
