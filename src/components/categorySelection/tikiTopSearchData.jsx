@@ -3,16 +3,16 @@ export const categoryData = [
         category: 'Thời trang nữ',
         subCategories: [
             {
-                subCategory: 'cruiser bike',
-                subSubCategories: ['sub cruiser bike 1', 'sub cruiser bike 2'],
+                subCategory: 'Áo nữ',
+                subSubCategories: ['Áo thun nữ', 'Áo sơ mi nữ', 'Áo kiểu'],
             },
             {
-                subCategory: 'big car',
-                subSubCategories: ['big red car', 'big blue car'],
+                subCategory: 'Đầm nữ',
+                subSubCategories: ['Đầm dáng xòe', 'Đầm dáng ôm', 'Đầm suông'],
             },
             {
-                subCategory: 'small car',
-                subSubCategories: ['small red car', 'small blue car'],
+                subCategory: 'Chân váy',
+                subSubCategories: ['Chân váy dài', 'Chân váy ngắn', 'Chân váy xếp li'],
             },
         ],
     },
@@ -20,16 +20,16 @@ export const categoryData = [
         category: 'Thời trang nam',
         subCategories: [
             {
-                subCategory: 'cruiser bike',
-                subSubCategories: ['sub cruiser bike 1', 'sub cruiser bike 2'],
+                subCategory: 'Áo thun nam',
+                subSubCategories: ['Áo thun nam ngắn tay có cổ', 'Áo thun nam ngắn tay không cổ', 'Áo thun nam ba lỗ'],
             },
             {
-                subCategory: 'big car',
-                subSubCategories: ['big red car', 'big blue car'],
+                subCategory: 'Áo sơ mi nam',
+                subSubCategories: ['Áo sơ mi nam tay dài', 'Áo sơ mi nam tay dài trơn'],
             },
             {
-                subCategory: 'small car',
-                subSubCategories: ['small red car', 'small blue car'],
+                subCategory: 'Áo vest - Áo khoác nam',
+                subSubCategories: ['Áo khoác phao nam', 'Áo khoác da nam', 'Áo khoác gió'],
             },
         ],
     },
@@ -37,16 +37,16 @@ export const categoryData = [
         category: 'Giày - Dép nữ',
         subCategories: [
             {
-                subCategory: 'cruiser bike',
-                subSubCategories: ['sub cruiser bike 1', 'sub cruiser bike 2'],
+                subCategory: 'Giày cao gót',
+                subSubCategories: ['Giày cao gót nhọn', 'Giày cao gót quai sau', 'Giày bít mũi quai ngang'],
             },
             {
-                subCategory: 'big car',
-                subSubCategories: ['big red car', 'big blue car'],
+                subCategory: 'Giày thể thao nữ',
+                subSubCategories: ['Giày thể thao cổ thấp', 'Giày thể thao cổ cao'],
             },
             {
-                subCategory: 'small car',
-                subSubCategories: ['small red car', 'small blue car'],
+                subCategory: 'Giày sandals nữ',
+                subSubCategories: ['Giày sandals đế bằng', 'Giày sandals chiến binh', 'Giày sandals buộc dây'],
             },
         ],
     },
@@ -54,16 +54,16 @@ export const categoryData = [
         category: 'Túi thời trang nữ',
         subCategories: [
             {
-                subCategory: 'cruiser bike',
-                subSubCategories: ['sub cruiser bike 1', 'sub cruiser bike 2'],
+                subCategory: 'Túi tote nữ',
+                subSubCategories: ['Túi tote có khóa', 'Túi tote không khóa'],
             },
             {
-                subCategory: 'big car',
-                subSubCategories: ['big red car', 'big blue car'],
+                subCategory: 'Túi đeo chéo, túi đeo vai nữ',
+                subSubCategories: ['Túi đeo chéo công sở', 'Túi đeo chéo dạo phố'],
             },
             {
-                subCategory: 'small car',
-                subSubCategories: ['small red car', 'small blue car'],
+                subCategory: 'Túi xách tay nữ',
+                subSubCategories: ['Túi xách to bản', 'Túi xách vừa và nhỏ'],
             },
         ],
     },
@@ -71,16 +71,16 @@ export const categoryData = [
         category: 'Giày - Dép nam',
         subCategories: [
             {
-                subCategory: 'cruiser bike',
-                subSubCategories: ['sub cruiser bike 1', 'sub cruiser bike 2'],
+                subCategory: 'Giày thể thao nam',
+                subSubCategories: ['Giày thể thao nam cổ thấp', 'Giày thể thao nam cổ cao'],
             },
             {
-                subCategory: 'big car',
-                subSubCategories: ['big red car', 'big blue car'],
+                subCategory: 'Giày lười nam',
+                subSubCategories: ['Giày lười vải nam', 'Giày lười da nam', 'Giày lười nhựa nam'],
             },
             {
-                subCategory: 'small car',
-                subSubCategories: ['small red car', 'small blue car'],
+                subCategory: 'Giày tây nam',
+                subSubCategories: ['Giày tây nam có dây', 'Giày tây nam không dây'],
             },
         ],
     },
@@ -88,16 +88,16 @@ export const categoryData = [
         category: 'Túi thời trang nam',
         subCategories: [
             {
-                subCategory: 'cruiser bike',
-                subSubCategories: ['sub cruiser bike 1', 'sub cruiser bike 2'],
+                subCategory: 'Túi sách công sở nam',
+                subSubCategories: [],
             },
             {
-                subCategory: 'big car',
-                subSubCategories: ['big red car', 'big blue car'],
+                subCategory: 'Túi đeo chéo nam',
+                subSubCategories: [],
             },
             {
-                subCategory: 'small car',
-                subSubCategories: ['small red car', 'small blue car'],
+                subCategory: 'Túi bao tử, túi đeo bụng',
+                subSubCategories: [],
             },
         ],
     },
@@ -105,33 +105,16 @@ export const categoryData = [
         category: 'Balo và Vali',
         subCategories: [
             {
-                subCategory: 'cruiser bike',
-                subSubCategories: ['sub cruiser bike 1', 'sub cruiser bike 2'],
+                subCategory: 'Balo',
+                subSubCategories: ['Balo nam', 'Balo nữ', 'Balo laptop'],
             },
             {
-                subCategory: 'big car',
-                subSubCategories: ['big red car', 'big blue car'],
+                subCategory: 'Balo, cặp, túi chống sốc laptop',
+                subSubCategories: ['Túi chống sốc', 'Cặp đựng laptop'],
             },
             {
-                subCategory: 'small car',
-                subSubCategories: ['small red car', 'small blue car'],
-            },
-        ],
-    },
-    {
-        category: 'Phụ kiện thời trang',
-        subCategories: [
-            {
-                subCategory: 'cruiser bike',
-                subSubCategories: ['sub cruiser bike 1', 'sub cruiser bike 2'],
-            },
-            {
-                subCategory: 'big car',
-                subSubCategories: ['big red car', 'big blue car'],
-            },
-            {
-                subCategory: 'small car',
-                subSubCategories: ['small red car', 'small blue car'],
+                subCategory: 'Túi du lịch và phụ kiện',
+                subSubCategories: ['Balo du lịch, phượt', 'Túi trống', 'Phụ kiện du lịch khác'],
             },
         ],
     },
@@ -139,101 +122,16 @@ export const categoryData = [
         category: 'Đồng hồ và trang sức',
         subCategories: [
             {
-                subCategory: 'cruiser bike',
-                subSubCategories: ['sub cruiser bike 1', 'sub cruiser bike 2'],
+                subCategory: 'Đồng hồ nam',
+                subSubCategories: ['Đồng hồ business nam', 'ĐỒng hồ thời trang, casual nam', 'Đồng hồ thể thao nam'],
             },
             {
-                subCategory: 'big car',
-                subSubCategories: ['big red car', 'big blue car'],
+                subCategory: 'Đồng hồ nữ',
+                subSubCategories: ['Đồng hồ dây da', 'Đồng hồ dây kim loại', 'Đồng hồ thể thao nữ'],
             },
             {
-                subCategory: 'small car',
-                subSubCategories: ['small red car', 'small blue car'],
-            },
-        ],
-    },
-    {
-        category: 'Đồ chơi - Mẹ & Bé',
-        subCategories: [
-            {
-                subCategory: 'cruiser bike',
-                subSubCategories: ['sub cruiser bike 1', 'sub cruiser bike 2'],
-            },
-            {
-                subCategory: 'big car',
-                subSubCategories: ['big red car', 'big blue car'],
-            },
-            {
-                subCategory: 'small car',
-                subSubCategories: ['small red car', 'small blue car'],
-            },
-        ],
-    },
-    {
-        category: 'Điện thoại - Máy tính bảng',
-        subCategories: [
-            {
-                subCategory: 'cruiser bike',
-                subSubCategories: ['sub cruiser bike 1', 'sub cruiser bike 2'],
-            },
-            {
-                subCategory: 'big car',
-                subSubCategories: ['big red car', 'big blue car'],
-            },
-            {
-                subCategory: 'small car',
-                subSubCategories: ['small red car', 'small blue car'],
-            },
-        ],
-    },
-    {
-        category: 'Làm đẹp - Sức khỏe',
-        subCategories: [
-            {
-                subCategory: 'cruiser bike',
-                subSubCategories: ['sub cruiser bike 1', 'sub cruiser bike 2'],
-            },
-            {
-                subCategory: 'big car',
-                subSubCategories: ['big red car', 'big blue car'],
-            },
-            {
-                subCategory: 'small car',
-                subSubCategories: ['small red car', 'small blue car'],
-            },
-        ],
-    },
-    {
-        category: 'Điện gia dụng',
-        subCategories: [
-            {
-                subCategory: 'cruiser bike',
-                subSubCategories: ['sub cruiser bike 1', 'sub cruiser bike 2'],
-            },
-            {
-                subCategory: 'big car',
-                subSubCategories: ['big red car', 'big blue car'],
-            },
-            {
-                subCategory: 'small car',
-                subSubCategories: ['small red car', 'small blue car'],
-            },
-        ],
-    },
-    {
-        category: 'Laptop - Máy vi tính - Linh kiện',
-        subCategories: [
-            {
-                subCategory: 'cruiser bike',
-                subSubCategories: ['sub cruiser bike 1', 'sub cruiser bike 2'],
-            },
-            {
-                subCategory: 'big car',
-                subSubCategories: ['big red car', 'big blue car'],
-            },
-            {
-                subCategory: 'small car',
-                subSubCategories: ['small red car', 'small blue car'],
+                subCategory: 'Đồng hồ trẻ em',
+                subSubCategories: ['Đồng hồ bé trai', 'Đồng hồ bé gái'],
             },
         ],
     },
@@ -241,84 +139,17 @@ export const categoryData = [
         category: 'Nhà cửa - đời sống',
         subCategories: [
             {
-                subCategory: 'cruiser bike',
-                subSubCategories: ['sub cruiser bike 1', 'sub cruiser bike 2'],
-            },
-            {
-                subCategory: 'big car',
-                subSubCategories: ['big red car', 'big blue car'],
-            },
-            {
-                subCategory: 'small car',
-                subSubCategories: ['small red car', 'small blue car'],
+                subCategory: 'Đồ dùng phòng ngủ',
+                subSubCategories: ['Bộ ga, drap', 'Chăn, mền và phụ kiện', 'Gối, ruột gối, vỏ gối'],
             },
         ],
     },
     {
-        category: 'Cross Border - Hàng Quốc Tế',
+        category: 'Thiết bị số - Phụ kiện số',
         subCategories: [
             {
-                subCategory: 'cruiser bike',
-                subSubCategories: ['sub cruiser bike 1', 'sub cruiser bike 2'],
-            },
-            {
-                subCategory: 'big car',
-                subSubCategories: ['big red car', 'big blue car'],
-            },
-            {
-                subCategory: 'small car',
-                subSubCategories: ['small red car', 'small blue car'],
-            },
-        ],
-    },
-    {
-        category: 'Ô tô - Xe máy - Xe Đạp',
-        subCategories: [
-            {
-                subCategory: 'cruiser bike',
-                subSubCategories: ['sub cruiser bike 1', 'sub cruiser bike 2'],
-            },
-            {
-                subCategory: 'big car',
-                subSubCategories: ['big red car', 'big blue car'],
-            },
-            {
-                subCategory: 'small car',
-                subSubCategories: ['small red car', 'small blue car'],
-            },
-        ],
-    },
-    {
-        category: 'Nhà sách Tiki',
-        subCategories: [
-            {
-                subCategory: 'cruiser bike',
-                subSubCategories: ['sub cruiser bike 1', 'sub cruiser bike 2'],
-            },
-            {
-                subCategory: 'big car',
-                subSubCategories: ['big red car', 'big blue car'],
-            },
-            {
-                subCategory: 'small car',
-                subSubCategories: ['small red car', 'small blue car'],
-            },
-        ],
-    },
-    {
-        category: 'Điện tử - Điện lạnh',
-        subCategories: [
-            {
-                subCategory: 'cruiser bike',
-                subSubCategories: ['sub cruiser bike 1', 'sub cruiser bike 2'],
-            },
-            {
-                subCategory: 'big car',
-                subSubCategories: ['big red car', 'big blue car'],
-            },
-            {
-                subCategory: 'small car',
-                subSubCategories: ['small red car', 'small blue car'],
+                subCategory: 'Thiết bị chơi game và phụ kiện',
+                subSubCategories: ['Đĩa game', 'Ghế gaming'],
             },
         ],
     },
@@ -326,16 +157,16 @@ export const categoryData = [
         category: 'Thể thao - Dã Ngoại',
         subCategories: [
             {
-                subCategory: 'cruiser bike',
-                subSubCategories: ['sub cruiser bike 1', 'sub cruiser bike 2'],
+                subCategory: 'Giày thể thao nam',
+                subSubCategories: ['Giày chạy bộ nam', 'Giày bóng chuyền nam', 'Giày đá bóng nam'],
             },
             {
-                subCategory: 'big car',
-                subSubCategories: ['big red car', 'big blue car'],
+                subCategory: 'Trang phục thể thao nam',
+                subSubCategories: ['Áo thể thao nam', 'Quần thể thao nam', 'Quần áo đá banh nam'],
             },
             {
-                subCategory: 'small car',
-                subSubCategories: ['small red car', 'small blue car'],
+                subCategory: 'Giày thể thao nữ',
+                subSubCategories: ['Giày chạy bộ nữ', 'Giày đá bóng nữ', 'Giày cầu lông nữ'],
             },
         ],
     },
@@ -343,16 +174,12 @@ export const categoryData = [
         category: 'Máy ảnh - Máy Quay Phim',
         subCategories: [
             {
-                subCategory: 'cruiser bike',
-                subSubCategories: ['sub cruiser bike 1', 'sub cruiser bike 2'],
+                subCategory: 'Phụ kiện máy ảnh, máy quay',
+                subSubCategories: ['Dụng cụ vệ sinh máy ảnh', 'Phụ kiện máy ảnh, máy quay khác', 'Miếng dán bảo vệ màn hình máy ảnh'],
             },
             {
-                subCategory: 'big car',
-                subSubCategories: ['big red car', 'big blue car'],
-            },
-            {
-                subCategory: 'small car',
-                subSubCategories: ['small red car', 'small blue car'],
+                subCategory: 'balo - túi đựng - bao da',
+                subSubCategories: ['Hộp đựng - tủ chống ẩm', 'Bao đựng chống sốc, chống nước', 'Dây đeo máy ảnh, máy quay, ống nhòm'],
             },
         ],
     },
@@ -360,16 +187,12 @@ export const categoryData = [
         category: 'Dịch vụ',
         subCategories: [
             {
-                subCategory: 'cruiser bike',
-                subSubCategories: ['sub cruiser bike 1', 'sub cruiser bike 2'],
+                subCategory: 'TNSL Partner',
+                subSubCategories: [],
             },
             {
-                subCategory: 'big car',
-                subSubCategories: ['big red car', 'big blue car'],
-            },
-            {
-                subCategory: 'small car',
-                subSubCategories: ['small red car', 'small blue car'],
+                subCategory: 'Vật tư bao bì TNSL',
+                subSubCategories: [],
             },
         ],
     },
