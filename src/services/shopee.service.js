@@ -9,7 +9,7 @@ class ShopeeService {
             value: str,
         });
             return axios.get(`${REACT_APP_API_URL}/shopee/suggestion?keyword=${keyword}`, {
-                withCredentials: true,
+              //  withCredentials: true,
             }).then(
             function (response) {
                 let data = response.data.data.data;
@@ -29,7 +29,7 @@ class ShopeeService {
 
     listProductsBySearchTerm(searchTerm) {
         return axios.get(`${REACT_APP_API_URL}/shopee/product?searchTerm=${searchTerm}`, {
-            withCredentials: true,
+          //  withCredentials: true,
         }).then(
             function (response) {
                 return response.data.data.data;
@@ -42,7 +42,7 @@ class ShopeeService {
 
     getShopeeKeywordCount(keyword) {
         return axios.get(`${REACT_APP_API_URL}/suggestionCount?keyword=${keyword}&site=shopee`, {
-            withCredentials: true,
+         //   withCredentials: true,
         }).then(
             function (response) {
                 return response.data.data.data;

@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 require("dotenv").config()
 
 const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
@@ -9,13 +10,13 @@ class TikiService {
             value: str,
         });
         return axios.get(`${REACT_APP_API_URL}/tiki/suggestion?keyword=${keyword}`, {
-            withCredentials: true,
+           // withCredentials: true,
         }).then(
             function (response) {
                 let data = response.data.data.data;
                 const suggestionsArr = [];
                 if (data != null) {
-                    for (let i = 0;i < data[0].suggestions.length;i++) {
+                    for (let i = 0; i < data[0].suggestions.length; i++) {
                         suggestionsArr.push(suggestionVal(data[0].suggestions[i]));
                     }
                 }
@@ -29,7 +30,7 @@ class TikiService {
 
     listProductsBySearchTerm(searchTerm) {
         return axios.get(`${REACT_APP_API_URL}/tiki/product?searchTerm=${searchTerm}`, {
-            withCredentials: true,
+           // withCredentials: true,
         }).then(
             function (response) {
                 return response.data.data.data;
@@ -42,7 +43,7 @@ class TikiService {
 
     getTikiKeywordCount(keyword) {
         return axios.get(`${REACT_APP_API_URL}/suggestionCount?keyword=${keyword}&site=tiki`, {
-            withCredentials: true,
+            // withCredentials: true,
         }).then(
             function (response) {
                 return response.data.data.data;
@@ -64,8 +65,14 @@ class TikiService {
             });
     }
 
-    getTikiTopSearchByCategory() {
-        return axios.get(`${REACT_APP_API_URL}/tiki/topSearchByCategory`).then(
+    getTikiTopSearchByCategory(productId) {
+        const url = `${REACT_APP_API_URL}/tiki/topSearchByCategory`
+        return axios.post(url, {
+                product_id: [productId],
+                excluded_business: 157998,
+                payment_model: "CPC"
+            }
+        ).then(
             function (response) {
                 return response.data.data.keywords;
             }

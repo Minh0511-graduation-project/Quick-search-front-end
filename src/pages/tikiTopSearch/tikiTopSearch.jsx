@@ -15,7 +15,7 @@ const TikiTopSearch = () => {
     };
 
     const getTikiTopSearchByCategory = () => {
-        tikiService.getTikiTopSearchByCategory().then((response) => {
+        tikiService.getTikiTopSearchByCategory(251392078).then((response) => {
             const newDataArray = []
             let i = 0
             for (const keywordData of response) {
