@@ -143,6 +143,7 @@ const SearchResults = () => {
                                         {tikiProducts?.map((product, index) => (
                                             <Col span={4.8} key={product.id}>
                                                 <ProductCard
+                                                    key={product.id}
                                                     imageUrl={product.imageUrl}
                                                     name={product.name}
                                                     price={product.price}
@@ -185,6 +186,7 @@ const SearchResults = () => {
                                         {shopeeProducts?.map((product, index) => (
                                             <Col span={4.8} key={product.id}>
                                                 <ProductCard
+                                                    key={product.id}
                                                     imageUrl={product.imageUrl}
                                                     name={product.name}
                                                     price={product.price}

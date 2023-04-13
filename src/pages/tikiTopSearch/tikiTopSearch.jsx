@@ -1,21 +1,26 @@
-import {Layout, Table} from "antd";
+import {Layout, Select, Table} from "antd";
 import "./tikiTopSearch.css";
 import SearchHeading from "../../components/searchHeading/searchHeading";
 import {useEffect, useState} from "react";
 import Sidebar from "../../components/sidebar/sidebar";
 import tikiService from "../../services/tiki.service";
-import CategorySelection from "../../components/categorySelection/categorySelection";
+import {categoryData} from "../../components/categorySelection/tikiTopSearchData";
 
 const TikiTopSearch = () => {
     const [refreshPage, setRefreshPage] = useState(false);
     const [keywordData, setKeywordData] = useState();
+    const [category, setCategory] = useState();
 
     const handleRefresh = () => {
         setRefreshPage((current) => !current);
     };
 
+    const handleCategoryChange = (value) => {
+        setCategory(value);
+    };
+
     const getTikiTopSearchByCategory = () => {
-        tikiService.getTikiTopSearchByCategory(251392078).then((response) => {
+        tikiService.getTikiTopSearchByCategory(parseInt(category)).then((response) => {
             const newDataArray = []
             let i = 0
             for (const keywordData of response) {
@@ -33,7 +38,6 @@ const TikiTopSearch = () => {
         })
     }
 
-
     useEffect(() => {
         const fetchData = async () => {
             await getTikiTopSearchByCategory();
@@ -41,7 +45,7 @@ const TikiTopSearch = () => {
         fetchData()
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [refreshPage]);
+    }, [refreshPage, category]);
 
     const columns = [
         {
@@ -83,7 +87,18 @@ const TikiTopSearch = () => {
                 <Layout className={"search-results-content"}>
                     <Layout>
                         <Layout className={"tiki-top-search-category"}>
-                            <CategorySelection />
+                            <div className={"tiki-top-search"}>
+                                Chọn danh mục
+                                <Select
+                                    defaultValue=""
+                                    style={{
+                                        paddingLeft: 20,
+                                        width: 300,
+                                    }}
+                                    onChange={handleCategoryChange}
+                                    options={categoryData}
+                                />
+                            </div>
                         </Layout>
                         <Layout className={"tiki-top-search-table"}>
                             <Table
