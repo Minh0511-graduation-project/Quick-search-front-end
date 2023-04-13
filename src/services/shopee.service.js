@@ -53,10 +53,21 @@ class ShopeeService {
             });
     }
 
+    getShopeeTopSearchSuggestion() {
+        return axios.get(`${REACT_APP_API_URL}/shopee/topSearchSuggestion`).then(
+            function (response) {
+                return response.data.data.queries;
+            }
+        )
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
     getShopeeTopSearch() {
         return axios.get(`${REACT_APP_API_URL}/shopee/topSearch`).then(
             function (response) {
-                return response.data.data.queries;
+                return response.data.data.data;
             }
         )
             .catch(function (error) {

@@ -11,7 +11,7 @@ const RecommendSearch = () => {
     const navigate = useNavigate();
 
     const getTikiTopSearch = () => {
-        TikiService.getTikiTopSearch().then((response) => {
+        TikiService.getTikiTopSearchSuggestion().then((response) => {
             const topSearches = []
             if (response.length <= 10) {
                 for (let i = 0; i < response.length; i++) {
@@ -27,7 +27,7 @@ const RecommendSearch = () => {
     }
 
     const getShopeeTopSearch = () => {
-        ShopeeService.getShopeeTopSearch().then((response) => {
+        ShopeeService.getShopeeTopSearchSuggestion().then((response) => {
             const topSearches = []
             if (response.length <= 10) {
                 for (let i = 0; i < response.length; i++) {

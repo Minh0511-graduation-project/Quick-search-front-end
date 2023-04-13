@@ -10,6 +10,7 @@ const Sidebar = () => {
     const link1 = `/search-results/${encodeURIComponent(value)}/shop-products`
     const link2 = `/search-results/${encodeURIComponent(value)}/keyword-search-statistic`
     const link3 = `/search-results/${encodeURIComponent(value)}/tiki-top-search`
+    const link4 = `/search-results/${encodeURIComponent(value)}/shopee-top-search`
 
     return(
         <Sider width={330}
@@ -40,6 +41,13 @@ const Sidebar = () => {
                     onClick={() => navigate(`/search-results/${value}/tiki-top-search`)}
                 >
                     Tiki top search
+                </Menu.Item>
+                <Menu.Item
+                    className={"menu-item"}
+                    key={link4}
+                    onClick={() => navigate(`/search-results/${value}/shopee-top-search`)}
+                >
+                    Shopee top search
                 </Menu.Item>
             </Menu>
         </Sider>

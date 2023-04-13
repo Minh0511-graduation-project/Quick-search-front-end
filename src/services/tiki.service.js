@@ -54,8 +54,8 @@ class TikiService {
             });
     }
 
-    getTikiTopSearch() {
-        return axios.get(`${REACT_APP_API_URL}/tiki/topSearch`).then(
+    getTikiTopSearchSuggestion() {
+        return axios.get(`${REACT_APP_API_URL}/tiki/topSearchSuggestion`).then(
             function (response) {
                 return response.data.data;
             }
