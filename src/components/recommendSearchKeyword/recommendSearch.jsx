@@ -53,7 +53,6 @@ const RecommendSearch = () => {
     }, []);
 
     const goToSearchResults = (value) => {
-        console.log(value)
         localStorage.setItem("searchValue", value);
         navigate(`/search-results/${value}/shop-products`)
     }
