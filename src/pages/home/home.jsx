@@ -8,25 +8,80 @@ import {useState} from "react";
 import ShopeeService from "../../services/shopee.service";
 import TikiService from "../../services/tiki.service";
 import RecommendSearch from "../../components/recommendSearchKeyword/recommendSearch";
+
 const removeDuplicates = require('../../support/helper')
 
 const {Search} = Input;
 
 const Home = () => {
     const [inputValue, setInputValue] = useState();
-    const [suggestions, setSuggestions] = useState([]);
+    const [shopeeSuggestion, setShopeeSuggestion] = useState([]);
+    const [tikiSuggestion, setTikiSuggestion] = useState([]);
     const navigate = useNavigate();
+
+    const renderTitle = (title) => (
+        <span
+            style={{
+                fontSize: 20,
+            }}
+        >
+            {title}
+        </span>
+    );
+    const renderItem = (title, index) => {
+        const key = `${title}-${index}`;
+        return {
+            value: title,
+            label: (
+                <div
+                    key={key}
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                    }}
+                >
+                    {title}
+                </div>
+            ),
+        };
+    };
 
     const handleSearch = async value => {
         const newValue = value.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         let response = [];
+        let shopeeSuggestionResponse = []
+        let tikiSuggestionResponse = []
         const shopeeResponse = await ShopeeService.listSuggestionsByKeyword(newValue);
+        shopeeSuggestionResponse.push(...shopeeResponse)
         response.push(...shopeeResponse)
+
         const tikiResponse = await TikiService.listSuggestionsByKeyword(newValue);
+        tikiSuggestionResponse.push(...tikiResponse)
         response.push(...tikiResponse)
+
         response = removeDuplicates(response);
-        setSuggestions(response);
+        setShopeeSuggestion(shopeeSuggestionResponse)
+        setTikiSuggestion(tikiSuggestionResponse)
     };
+
+    const filteredArray = tikiSuggestion.filter((item) => {
+        return !shopeeSuggestion.some((secondItem) => secondItem.value === item.value);
+    });
+
+    const options = [
+        {
+            label: renderTitle('Shopee'),
+            options: filteredArray.map((title, index) =>
+                renderItem(title.value, index)
+            ),
+        },
+        {
+            label: renderTitle('Tiki'),
+            options: tikiSuggestion.map((title, index) =>
+                renderItem(title.value, index)
+            ),
+        },
+    ];
 
     const goToSearchResults = (value) => {
         if (value === undefined || value === "") {
@@ -51,7 +106,7 @@ const Home = () => {
             <Space className={"search-bar-home"}>
                 <AutoComplete
                     className={"search-input"}
-                    options={suggestions}
+                    options={options}
                     onSearch={handleSearch}
                     onSelect={goToSearchResults}
                     value={inputValue}
@@ -69,7 +124,7 @@ const Home = () => {
                 </AutoComplete>
             </Space>
             <Layout>
-                <RecommendSearch />
+                <RecommendSearch/>
             </Layout>
         </Layout>
     );

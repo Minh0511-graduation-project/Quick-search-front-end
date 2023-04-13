@@ -13,20 +13,74 @@ const removeDuplicates = require('../../support/helper')
 
 const SearchHeading = (props) => {
     const [inputValue, setInputValue] = useState();
-    const [suggestions, setSuggestions] = useState([]);
+    const [shopeeSuggestion, setShopeeSuggestion] = useState([]);
+    const [tikiSuggestion, setTikiSuggestion] = useState([]);
     const searchInputRef = useRef(null);
     const navigate = useNavigate();
+
+    const renderTitle = (title) => (
+        <span
+            style={{
+                fontSize: 20,
+            }}
+        >
+            {title}
+        </span>
+    );
+    const renderItem = (title, index) => {
+        const key = `${title}-${index}`;
+        return {
+            value: title,
+            label: (
+                <div
+                    key={key}
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                    }}
+                >
+                    {title}
+                </div>
+            ),
+        };
+    };
 
     const handleSearch = async value => {
         const newValue = value.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         let response = [];
+        let shopeeSuggestionResponse = []
+        let tikiSuggestionResponse = []
         const shopeeResponse = await ShopeeService.listSuggestionsByKeyword(newValue);
+        shopeeSuggestionResponse.push(...shopeeResponse)
         response.push(...shopeeResponse)
+
         const tikiResponse = await TikiService.listSuggestionsByKeyword(newValue);
+        tikiSuggestionResponse.push(...tikiResponse)
         response.push(...tikiResponse)
+
         response = removeDuplicates(response);
-        setSuggestions(response);
+        setShopeeSuggestion(shopeeSuggestionResponse)
+        setTikiSuggestion(tikiSuggestionResponse)
     };
+
+    const filteredArray = tikiSuggestion.filter((item) => {
+        return !shopeeSuggestion.some((secondItem) => secondItem.value === item.value);
+    });
+
+    const options = [
+        {
+            label: renderTitle('Shopee'),
+            options: filteredArray.map((title, index) =>
+                renderItem(title.value, index)
+            ),
+        },
+        {
+            label: renderTitle('Tiki'),
+            options: tikiSuggestion.map((title, index) =>
+                renderItem(title.value, index)
+            ),
+        },
+    ];
 
 
     const goToNewSearch = (value) => {
@@ -59,7 +113,7 @@ const SearchHeading = (props) => {
                                 width: "50vw",
                             }}
                             autoClearSearchValue={true}
-                            options={suggestions}
+                            options={options}
                             onSearch={handleSearch}
                             onSelect={goToNewSearch}
                             value={inputValue}

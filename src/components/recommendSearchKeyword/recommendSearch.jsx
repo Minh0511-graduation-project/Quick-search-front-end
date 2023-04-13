@@ -12,7 +12,6 @@ const RecommendSearch = () => {
 
     const getTikiTopSearch = () => {
         TikiService.getTikiTopSearch().then((response) => {
-            console.log(response)
             const topSearches = []
             if (response.length <= 10) {
                 for (let i = 0; i < response.length; i++) {
@@ -75,6 +74,7 @@ const RecommendSearch = () => {
                 <Col span={21}>
                     {tikiTopSearch?.map((keyword, index) => (
                         <Typography
+                            key={index}
                             className={"top-search"}
                             onClick={() => goToSearchResults(keyword)}
                             style={{ cursor: "pointer" }}
@@ -102,6 +102,7 @@ const RecommendSearch = () => {
                 <Col span={21}>
                     {shopeeTopSearch?.map((keyword, index) => (
                         <Typography
+                            key={index}
                             className={"top-search"}
                             onClick={() => goToSearchResults(keyword)}
                             style={{ cursor: "pointer" }}

@@ -50,8 +50,6 @@ const CategorySelection = () => {
         return null;
     };
 
-    console.log(selectedSubSubCategory)
-
     return (
         <div className={"tiki-top-search"}>
             <Select
