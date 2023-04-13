@@ -64,8 +64,8 @@ const Home = () => {
         setTikiSuggestion(tikiSuggestionResponse)
     };
 
-    const filteredArray = tikiSuggestion.filter((item) => {
-        return !shopeeSuggestion.some((secondItem) => secondItem.value === item.value);
+    const filteredArray = shopeeSuggestion.filter((item) => {
+        return !tikiSuggestion.some((secondItem) => secondItem.value === item.value);
     });
 
     const options = [

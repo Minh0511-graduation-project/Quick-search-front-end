@@ -8,11 +8,15 @@ export const categoryData = [
         label: 'Nón tai bèo nữ',
     },
     {
-        value: '251470510',
-        label: 'Bộ đồ lót nữ',
+        value: '251532389',
+        label: 'Áo sơ mi',
     },
     {
         value: '251548240',
         label: 'Phụ kiện nhà bếp',
+    },
+    {
+        value: '251514025',
+        label: 'Giày thể thao cổ thấp',
     },
 ];
