@@ -19,4 +19,8 @@ export const categoryData = [
         value: '251514025',
         label: 'Giày thể thao cổ thấp',
     },
+    {
+        value: '251511829',
+        label: 'Đồ bơi hai mảnh',
+    }
 ];

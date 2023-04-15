@@ -32,8 +32,14 @@
     background: #ADD8E6;
     padding-left: 100px;
     padding-right: 200px;
+    overflow: auto;
 }
 
 .tiki-top-search{
     font-size: 20px;
+    display: flex;
+}
+
+.top-search-button{
+    padding-right: 10px;
 }

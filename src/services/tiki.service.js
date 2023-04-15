@@ -65,8 +65,8 @@ class TikiService {
             });
     }
 
-    getTikiTopSearchByCategory(productId) {
-        const url = `${REACT_APP_API_URL}/tiki/topSearchByCategory`
+    getTikiTopSearchByCategory(productId, topDisplay) {
+        const url = `${REACT_APP_API_URL}/tiki/topSearchByCategory?topDisplay=${topDisplay}`
         return axios.post(url, {
                 product_id: [productId],
                 excluded_business: 157998,

@@ -64,8 +64,8 @@ class ShopeeService {
             });
     }
 
-    getShopeeTopSearch() {
-        return axios.get(`${REACT_APP_API_URL}/shopee/topSearch`).then(
+    getShopeeTopSearch(topDisplay) {
+        return axios.get(`${REACT_APP_API_URL}/shopee/topSearch?topDisplay=${topDisplay}`).then(
             function (response) {
                 return response.data.data.data;
             }

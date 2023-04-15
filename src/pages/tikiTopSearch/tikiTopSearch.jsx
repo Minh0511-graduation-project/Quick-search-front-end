@@ -1,4 +1,4 @@
-import {Layout, Select, Table} from "antd";
+import {Button, Col, Layout, Row, Select, Table, Typography} from "antd";
 import "./tikiTopSearch.css";
 import SearchHeading from "../../components/searchHeading/searchHeading";
 import {useEffect, useState} from "react";
@@ -10,6 +10,8 @@ const TikiTopSearch = () => {
     const [refreshPage, setRefreshPage] = useState(false);
     const [keywordData, setKeywordData] = useState();
     const [category, setCategory] = useState();
+    const [topDisplay, setTopDisplay] = useState(10);
+    const [selectedButton, setSelectedButton] = useState(10);
 
     const handleRefresh = () => {
         setRefreshPage((current) => !current);
@@ -19,8 +21,13 @@ const TikiTopSearch = () => {
         setCategory(value);
     };
 
+    const handleTopNumberChange = (value) => {
+        setSelectedButton(value)
+        setTopDisplay(value)
+    }
+
     const getTikiTopSearchByCategory = () => {
-        tikiService.getTikiTopSearchByCategory(parseInt(category)).then((response) => {
+        tikiService.getTikiTopSearchByCategory(parseInt(category), topDisplay).then((response) => {
             const newDataArray = []
             let i = 0
             for (const keywordData of response) {
@@ -45,7 +52,7 @@ const TikiTopSearch = () => {
         fetchData()
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [refreshPage, category]);
+    }, [refreshPage, category, topDisplay]);
 
     const columns = [
         {
@@ -87,23 +94,75 @@ const TikiTopSearch = () => {
                 <Layout className={"search-results-content"}>
                     <Layout>
                         <Layout className={"tiki-top-search-category"}>
-                            <div className={"tiki-top-search"}>
-                                Chọn danh mục
-                                <Select
-                                    defaultValue=""
-                                    style={{
-                                        paddingLeft: 20,
-                                        width: 300,
-                                    }}
-                                    onChange={handleCategoryChange}
-                                    options={categoryData}
-                                />
+                            <div>
+                                <Row >
+                                    <Col span={3}>
+                                        <Typography
+                                            style={{
+                                                fontSize: 22,
+                                            }}
+                                        >
+                                            Chọn danh mục
+                                        </Typography>
+                                    </Col>
+                                    <Col span={6}>
+                                        <Select
+                                            defaultValue=""
+                                            style={{
+                                                paddingLeft: 20,
+                                                width: 300,
+                                            }}
+                                            onChange={handleCategoryChange}
+                                            options={categoryData}
+                                        />
+                                    </Col>
+                                    <Col span={2}>
+                                        <Button
+                                            style={{
+                                                width: "5.5vw",
+                                                alignContent: "center",
+                                            }}
+                                            type={selectedButton === 10 ? "primary" : "default"}
+                                            onClick={() => handleTopNumberChange(10)}
+                                        >
+                                            Top 10
+                                        </Button>
+                                    </Col>
+                                    <Col span={2}>
+                                        <Button
+                                            style={{
+                                                width: "5.5vw",
+                                                alignContent: "center",
+                                            }}
+                                            type={selectedButton === 50 ? "primary" : "default"}
+                                            onClick={() => handleTopNumberChange(50)}
+                                        >
+                                            Top 50
+                                        </Button>
+                                    </Col>
+                                    <Col span={2}>
+                                        <Button
+                                            style={{
+                                                width: "5.5vw",
+                                                alignContent: "center",
+                                            }}
+                                            type={selectedButton === 100 ? "primary" : "default"}
+                                            onClick={() => handleTopNumberChange(100)}
+                                        >
+                                            Top 100
+                                        </Button>
+                                    </Col>
+                                </Row>
                             </div>
                         </Layout>
                         <Layout className={"tiki-top-search-table"}>
                             <Table
+                                style={{
+                                    maxHeight: "75vh",
+                                }}
                                 columns={columns}
                                 dataSource={keywordData}
+                                sticky={true}
                             />
                         </Layout>
                     </Layout>
