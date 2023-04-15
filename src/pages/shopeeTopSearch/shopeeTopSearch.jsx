@@ -20,8 +20,6 @@ const ShopeeTopSearch = () => {
         setTopDisplay(value)
     }
 
-    console.log(topDisplay)
-
     const getShopeeTopSearch = () => {
         shopeeService.getShopeeTopSearch(topDisplay).then((response) => {
             const newDataArray = []
