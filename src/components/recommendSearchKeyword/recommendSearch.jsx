@@ -15,11 +15,11 @@ const RecommendSearch = () => {
             const topSearches = []
             if (response.length <= 10) {
                 for (let i = 0; i < response.length; i++) {
-                    topSearches.push(response[i].keyword)
+                    topSearches.push(response[i].keyword.toLowerCase())
                 }
             } else {
                 for (let i = 0; i < 10; i++) {
-                    topSearches.push(response[i].keyword)
+                    topSearches.push(response[i].keyword.toLowerCase())
                 }
             }
             setTikiTopSearch(topSearches)
@@ -31,11 +31,11 @@ const RecommendSearch = () => {
             const topSearches = []
             if (response.length <= 10) {
                 for (let i = 0; i < response.length; i++) {
-                    topSearches.push(response[i].text)
+                    topSearches.push(response[i].text.toLowerCase())
                 }
             } else {
                 for (let i = 0; i < 10; i++) {
-                    topSearches.push(response[i].text)
+                    topSearches.push(response[i].text.toLowerCase())
                 }
             }
             setShopeeTopSearch(topSearches)
