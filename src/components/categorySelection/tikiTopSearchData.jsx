@@ -397,4 +397,16 @@ export const categoryData = [
         value: '251533469',
         label: 'Combo thời trang mẹ và bé',
     },
+    {
+        value: '251585369',
+        label: 'Đĩa game',
+    },
+    {
+        value: '251513335',
+        label: 'Bộ vest name',
+    },
+    {
+        value: '251585796',
+        label: 'Gậy selfie',
+    },
 ];
