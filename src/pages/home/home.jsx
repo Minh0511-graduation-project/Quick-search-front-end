@@ -98,7 +98,7 @@ const Home = () => {
             <Space className={"logo-home"}>
                 <Image
                     className={"logo-image"}
-                    src={logo} width={300} height={300}/>
+                    src={logo} width={300} height={300} preview={false}/>
             </Space>
             <Space className={"app-name-home"}>
                 TRENDY SEARCH

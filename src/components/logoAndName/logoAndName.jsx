@@ -7,7 +7,7 @@ const LogoAndName = () => {
         <Layout className={"logo-and-name"}>
             <Row>
                 <Col span={6} className={"logo-heading"}>
-                    <Image className={"logo"} src={logo} width={70} height={70} />
+                    <Image className={"logo"} src={logo} width={70} height={70} preview={false}/>
                 </Col>
                 <Col span={18} className={"app-name"}>
                     Trendy Search

@@ -168,4 +168,130 @@ export const categoryData = [
         value: '251588483',
         label: 'Giày bóng rổ nam',
     },
+    {
+        value: '251462721',
+        label: 'Quần đôi',
+    },
+    {
+        value: '251531730',
+        label: 'Bộ áo liền quần',
+    },
+    {
+        value: '251462099',
+        label: 'Áo khoác bomber jackets',
+    },
+    {
+        value: '251550662',
+        label: 'Hộp khăn giấy',
+    },{
+        value: '251460446',
+        label: 'Áo khoác jeans nữ',
+    },
+    {
+        value: '251516237',
+        label: 'Mặt thắt lưng',
+    },
+    {
+        value: '251448933',
+        label: 'Quần legging-tregging nữ',
+    },
+    {
+        value: '251447095',
+        label: 'Quần jean nữ',
+    },
+    {
+        value: '251446833',
+        label: 'Chân váy công sở',
+    },
+    {
+        value: '',
+        label: 'Chân váy chữ A',
+    },
+    {
+        value: '',
+        label: '',
+    },
+    {
+        value: '',
+        label: '',
+    },
+    {
+        value: '',
+        label: '',
+    },
+    {
+        value: '',
+        label: '',
+    },
+    {
+        value: '',
+        label: '',
+    },
+    {
+        value: '',
+        label: '',
+    },
+    {
+        value: '',
+        label: '',
+    },
+    {
+        value: '',
+        label: '',
+    },
+    {
+        value: '',
+        label: '',
+    },
+    {
+        value: '',
+        label: '',
+    },
+    {
+        value: '',
+        label: '',
+    },
+    {
+        value: '',
+        label: '',
+    },
+    {
+        value: '',
+        label: '',
+    },
+    {
+        value: '',
+        label: '',
+    },
+    {
+        value: '',
+        label: '',
+    },
+    {
+        value: '',
+        label: '',
+    },
+    {
+        value: '',
+        label: '',
+    },
+    {
+        value: '',
+        label: '',
+    },
+    {
+        value: '',
+        label: '',
+    },
+    {
+        value: '',
+        label: '',
+    },
+    {
+        value: '',
+        label: '',
+    },{
+        value: '',
+        label: '',
+    },
 ];
