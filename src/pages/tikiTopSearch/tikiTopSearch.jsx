@@ -107,11 +107,16 @@ const TikiTopSearch = () => {
                                     </Col>
                                     <Col span={6}>
                                         <Select
-                                            defaultValue=""
+                                            showSearch
+                                            optionFilterProp="children"
+                                            placeholder="Chọn danh mục ngành hàng"
                                             style={{
                                                 paddingLeft: 20,
                                                 width: 300,
                                             }}
+                                            filterOption={(input, option) =>
+                                                (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
+                                            }
                                             onChange={handleCategoryChange}
                                             options={categoryData}
                                         />

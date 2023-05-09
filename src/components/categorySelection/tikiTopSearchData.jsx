@@ -203,95 +203,198 @@ export const categoryData = [
         value: '251446833',
         label: 'Chân váy công sở',
     },
+    // {
+    //     value: '251446503',
+    //     label: 'Chân váy chữ A',
+    // },
     {
-        value: '',
-        label: 'Chân váy chữ A',
+        value: '251444434',
+        label: 'Chân váy dài',
     },
     {
-        value: '',
-        label: '',
+        value: '251548157',
+        label: 'Dụng cụ ép trái cây',
     },
     {
-        value: '',
-        label: '',
+        value: '251395705',
+        label: 'Đầm dáng ôm',
     },
     {
-        value: '',
-        label: '',
+        value: '251515226',
+        label: 'Nón lưỡi trai nữ',
     },
     {
-        value: '',
-        label: '',
+        value: '251515166',
+        label: 'Cặp đựng lạptop',
     },
     {
-        value: '',
-        label: '',
+        value: '251547396',
+        label: 'Giá dắt dao',
     },
     {
-        value: '',
-        label: '',
+        value: '251514679',
+        label: 'Ví nam ngang',
     },
     {
-        value: '',
-        label: '',
+        value: '251585479',
+        label: 'Hộp đựng - túi đựng phụ kiện',
     },
     {
-        value: '',
-        label: '',
+        value: '251514576',
+        label: 'Giày lười vải nam',
     },
     {
-        value: '',
-        label: '',
+        value: '251537629',
+        label: 'Giấy in hóa đơn - giấy in tem',
     },
     {
-        value: '',
-        label: '',
+        value: '251514093',
+        label: 'Giày sandals xỏ ngón',
     },
     {
-        value: '',
-        label: '',
+        value: '251586105',
+        label: 'Chuột văn phòng có dây',
     },
     {
-        value: '',
-        label: '',
+        value: '251513400',
+        label: 'Giày cao gót quai sau',
     },
     {
-        value: '',
-        label: '',
+        value: '251537181',
+        label: 'Nhíp - dao cạo',
     },
     {
-        value: '',
-        label: '',
+        value: '251513242',
+        label: 'Áo khoác da nam',
     },
     {
-        value: '',
-        label: '',
+        value: '251585283',
+        label: 'Dụng cụ ăn uống',
     },
     {
-        value: '',
-        label: '',
+        value: '251512908',
+        label: 'Áo thun nam ba lỗ',
     },
     {
-        value: '',
-        label: '',
+        value: '251535147',
+        label: 'Dù, áo mưa cho bé',
     },
     {
-        value: '',
-        label: '',
+        value: '251395547',
+        label: 'Đầm dáng xòe',
     },
     {
-        value: '',
-        label: '',
+        value: '251511190',
+        label: 'Bikini',
     },
     {
-        value: '',
-        label: '',
+        value: '251534908',
+        label: 'Mắt kính trẻ em',
     },
     {
-        value: '',
-        label: '',
+        value: '251510549',
+        label: 'Đồ bộ lửng',
+    },
+    {
+        value: '251583614',
+        label: 'Dụng cụ chăm sóc',
+    },
+    {
+        value: '251509480',
+        label: 'Bộ quần áo ngủ',
+    },
+    {
+        value: '251533715',
+        label: 'Đồ lót bé trai',
+    },
+    {
+        value: '251470501',
+        label: 'Nịt bụng',
+    },
+    {
+        value: '251585912',
+        label: 'Phụ kiện chơi game điện thoại khác',
     },{
-        value: '',
-        label: '',
+        value: '251470487',
+        label: 'Quần lót không đường may',
+    },
+    {
+        value: '251533407',
+        label: 'Đồ bộ bé gái',
+    },
+    {
+        value: '251469365',
+        label: 'Corset',
+    },
+    {
+        value: '251465353',
+        label: 'Thời trang trung niên',
+    },{
+        value: '251532757',
+        label: 'Quần vớ bé gái',
+    },{
+        value: '251392078',
+        label: 'Áo thun nữ',
+    },
+    {
+        value: '251589065',
+        label: 'Quần áo bóng rổ nam',
+    },
+    {
+        value: '251462770',
+        label: 'Đầm bầu',
+    },
+    {
+        value: '251531831',
+        label: 'Khăn ủ',
+    },
+    {
+        value: '251462620',
+        label: 'Đồ gia đình',
+    },
+    {
+        value: '251462514',
+        label: 'Bộ trang phục',
+    },
+    {
+        value: '251521355',
+        label: 'Đồ bầu mặc nhà',
+    },
+    {
+        value: '251516227',
+        label: 'Hình xăm',
+    },
+    {
+        value: '251537529',
+        label: 'Nến thơm',
+    },{
+        value: '251585374',
+        label: 'Ghế gaming',
+    },
+    {
+        value: '251547645',
+        label: 'Khuôn làm bánh',
+    },
+    {
+        value: '251515207',
+        label: 'Phụ kiện kính',
+    },
+    {
+        value: '251588083',
+        label: 'Bàn phím chơi game',
+    },{
+        value: '251515160',
+        label: 'Balo laptop',
+    },{
+        value: '251515168',
+        label: 'Balo du lịch',
+    },
+    {
+        value: '251551424',
+        label: 'Chiếu',
+    },
+    {
+        value: '251533469',
+        label: 'Combo thời trang mẹ và bé',
     },
 ];
