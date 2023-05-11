@@ -47,3 +47,9 @@
     font-weight: bold;
     color: aliceblue;
 }
+
+.product-heading{
+    background: #ADD8E6;
+    padding-top: 30px;
+    padding-left: 120px;
+}

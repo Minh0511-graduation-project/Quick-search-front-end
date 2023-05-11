@@ -77,6 +77,7 @@ const SearchResults = () => {
         })
     }
 
+    const keyword = localStorage.getItem("searchValue");
 
     useEffect(() => {
         const fetchData = async () => {
@@ -110,6 +111,15 @@ const SearchResults = () => {
                 <Sidebar />
                 {tikiArrLen !== 0 || shopeeArrLen !== 0 ? (
                     <Layout className={"search-results-content"}>
+                        <Typography
+                            style={{
+                                fontSize: 26,
+                                paddingLeft: 120,
+                                paddingTop: 30
+                            }}
+                        >
+                            Các sản phẩm bán chạy với từ khóa: {keyword}
+                        </Typography>
                         <Space className={"tiki"}>
                             <Collapse
                                 defaultActiveKey={['1']}
