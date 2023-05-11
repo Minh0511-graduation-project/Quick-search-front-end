@@ -40,14 +40,14 @@ const Sidebar = () => {
                     key={link3}
                     onClick={() => navigate(`/search-results/${value}/tiki-top-search`)}
                 >
-                    Tiki top search
+                    Top tìm kiếm tiki
                 </Menu.Item>
                 <Menu.Item
                     className={"menu-item"}
                     key={link4}
                     onClick={() => navigate(`/search-results/${value}/shopee-top-search`)}
                 >
-                    Shopee top search
+                    Top tìm kiếm Shopee
                 </Menu.Item>
             </Menu>
         </Sider>

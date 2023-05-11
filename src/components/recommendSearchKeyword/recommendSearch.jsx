@@ -67,7 +67,7 @@ const RecommendSearch = () => {
                             fontWeight: "bold"
                         }}
                     >
-                        Top search Tiki:
+                        Top tìm kiếm Tiki:
                     </Typography>
                 </Col>
                 <Col span={21}>
@@ -95,7 +95,7 @@ const RecommendSearch = () => {
                             fontWeight: "bold"
                         }}
                     >
-                        Top search Shopee:
+                        Top tìm kiếm Shopee:
                     </Typography>
                 </Col>
                 <Col span={21}>
