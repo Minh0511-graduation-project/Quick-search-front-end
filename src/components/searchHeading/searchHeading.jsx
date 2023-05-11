@@ -69,14 +69,14 @@ const SearchHeading = (props) => {
 
     const options = [
         {
-            label: renderTitle('Shopee'),
-            options: filteredArray.map((title, index) =>
+            label: renderTitle('Tiki'),
+            options: tikiSuggestion.map((title, index) =>
                 renderItem(title.value, index)
             ),
         },
         {
-            label: renderTitle('Tiki'),
-            options: tikiSuggestion.map((title, index) =>
+            label: renderTitle('Shopee'),
+            options: filteredArray.map((title, index) =>
                 renderItem(title.value, index)
             ),
         },
